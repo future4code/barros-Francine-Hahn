@@ -1,0 +1,8 @@
+# Aprendizados da semana
+Durante a semana, tive a oportunidade de **aprender** sobre **diversos assuntos** que serão de extrema importância ao longo do curso e na minha vida profissional.
+**Inicialmente**, aprendemos a diferença entre o **terminal** e a **interface gráfica**. O terminal é mais eficiente e mais rápido comparado à interface gráfica, por isso, é a ferramenta que mais utilizaremos.
+No **terminal (Git Bash)**, podemos utilizar uma série de comandos para realizar diferentes ações. Os comandos vistos durante a primeira aula foram: echo, whoami, clear, pwd, ls, cd, mkdir, touch, rm, mv, cp, cat, head, tail, grep e history.
+**Na segunda aula**, aprendemos a diferença entre o **git** e o **github**. O git é uma ferramenta de gerenciamento de versões dos projetos. Ele facilita o rastreamento de alterações. Além disso, ele é um software distribuído (não conectado direto ao servidor), open source e focado em performance.
+Já o github, é uma plafaforma com serviço cloud e que acabou virando uma espécie de rede social para programadores. Ela faz a hospedagem dos códigos e se conecta com o git.
+Os comandos git ensinados foram: git clone, git status, git add, git commit -m "msg", git log, git branch, git checkout nome-da-branch, git checkout -b nome-da-branch, git push origin nome-da-branch e git pull origin nome-da-branch.
+E **finalmente**, para encerrar a semana, aprendemos como utilizar o **VS Code**.
