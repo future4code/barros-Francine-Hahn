@@ -121,8 +121,10 @@ if (turnoEstudo === 'M') {
     console.log('Bom dia!')
 } else if (turnoEstudo === 'V'){
     console.log('Boa tarde!')
-} else {
+} else if (turnoEstudo === 'N') {
     console.log('Boa noite!')
+} else {
+    console.log('Não encontrado')
 }
 
 
@@ -137,8 +139,11 @@ switch (turnoEstudo) {
     case 'V':
         console.log('Boa tarde!')
         break
-    default:
+    case 'N':
         console.log('Boa noite!')
+        break
+    default:
+        console.log('Não encontrado')
         break
 }
 
