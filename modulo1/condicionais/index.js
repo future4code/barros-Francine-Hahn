@@ -164,7 +164,7 @@ if (gêneroFilme === 'fantasia' && preçoIngresso < 15) {
 
 
 
-// --------------------------------------------------- DESAFIOS ------------------------------------------------------------
+// -------------------------------------------------- DESAFIOS ----------------------------------------------------------
 
 // 1. Modifique o código do exercício 4 de escrita de código para, antes de imprimir a mensagem "Bom filme!", pergunte ao usuário, pelo prompt qual lanchinho ele vai comprar (pipoca, chocolate, doces, etc) e imprima no console as mensagens "Bom filme!" e "Aproveite o seu [LANCHINHO]", trocando [LANCHINHO] pelo que o usuário colocou no input.
 
@@ -196,36 +196,44 @@ let categoria = Number(prompt('Qual a categoria? 1, 2, 3 ou 4?'))
 let quantidadeIngressos = Number(prompt('Quantos ingressos você deseja?'))
 let valorIngresso
 
-if (etapaDoJogo === 'SF' && categoria === 1 || etapaDoJogo === 'FI' && categoria === 2) {
-    tipoDeJogo === 'DO'? valorIngresso = 1320 : valorIngresso = 1320 * 4.1
-} else if (etapaDoJogo === 'SF' && categoria === 2) {
-    tipoDeJogo === 'DO'? valorIngresso = 880 : valorIngresso = 880 * 4.1
-} else if (etapaDoJogo === 'SF' && categoria === 3) {
-    tipoDeJogo === 'DO'? valorIngresso = 550 : valorIngresso = 550 * 4.1
-} else if (etapaDoJogo === 'SF' && categoria === 4) {
-    tipoDeJogo === 'DO'? valorIngresso = 220 : valorIngresso = 220 * 4.1
-} else if (etapaDoJogo === 'DT' && categoria === 1) {
-    tipoDeJogo === 'DO'? valorIngresso = 660 : valorIngresso = 660 * 4.1
-} else if (etapaDoJogo === 'DT' && categoria === 2) {
-    tipoDeJogo === 'DO'? valorIngresso = 440 : valorIngresso = 440 * 4.1
-} else if (etapaDoJogo === 'DT' && categoria === 3) {
-    tipoDeJogo === 'DO'? valorIngresso = 330 : valorIngresso = 330 * 4.1
-} else if (etapaDoJogo === 'DT' && categoria === 4) {
-    tipoDeJogo === 'DO'? valorIngresso = 170 : valorIngresso = 170 * 4.1
-} else if (etapaDoJogo === 'FI' && categoria === 1) {
-    tipoDeJogo === 'DO'? valorIngresso = 1980 : valorIngresso = 1980 * 4.1
-} else if (etapaDoJogo === 'FI' && categoria === 3) {
-    tipoDeJogo === 'DO'? valorIngresso = 880 : valorIngresso = 880 * 4.1
-} else {
-    tipoDeJogo === 'DO'? valorIngresso = 330 : valorIngresso = 330 * 4.1
-}
-
-console.log(`---Dados da compra---
+let jogoFutebol = (tipo, etapa, categoria) => {
+    if (etapa === 'SF' && categoria === 1 || etapa === 'FI' && categoria === 2) {
+        tipo === 'DO'? valorIngresso = 1320 : valorIngresso = 1320 / 4.1
+    } else if (etapa === 'SF' && categoria === 2) {
+        tipo === 'DO'? valorIngresso = 880 : valorIngresso = 880 / 4.1
+    } else if (etapa === 'SF' && categoria === 3) {
+        tipo === 'DO'? valorIngresso = 550 : valorIngresso = 550 / 4.1
+    } else if (etapa === 'SF' && categoria === 4) {
+        tipo === 'DO'? valorIngresso = 220 : valorIngresso = 220 / 4.1
+    } else if (etapa === 'DT' && categoria === 1) {
+        tipo === 'DO'? valorIngresso = 660 : valorIngresso = 660 / 4.1
+    } else if (etapa === 'DT' && categoria === 2) {
+        tipo === 'DO'? valorIngresso = 440 : valorIngresso = 440 / 4.1
+    } else if (etapa === 'DT' && categoria === 3) {
+        tipo === 'DO'? valorIngresso = 330 : valorIngresso = 330 / 4.1
+    } else if (etapa === 'DT' && categoria === 4) {
+        tipo === 'DO'? valorIngresso = 170 : valorIngresso = 170 / 4.1
+    } else if (etapa === 'FI' && categoria === 1) {
+        tipo === 'DO'? valorIngresso = 1980 : valorIngresso = 1980 / 4.1
+    } else if (etapa === 'FI' && categoria === 3) {
+        tipo === 'DO'? valorIngresso = 880 : valorIngresso = 880 / 4.1
+    } else {
+        tipo === 'DO'? valorIngresso = 330 : valorIngresso = 330 / 4.1
+    }
+    console.log(`---Dados da compra---
 Nome do cliente: ${nomeCompleto}
 Tipo do jogo: ${tipoDeJogo} 
 Etapa do jogo: ${etapaDoJogo}
 Categoria: ${categoria}
 Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
----Valores--- 
-Valor do ingresso: R$ ${valorIngresso}
+---Valores---`)
+    if (tipo === 'DO') {
+        console.log(`Valor do ingresso: R$ ${valorIngresso}
 Valor total: R$ ${valorIngresso * quantidadeIngressos}`)
+    } else {
+        console.log(`Valor do ingresso: U$ ${valorIngresso}
+Valor total: U$ ${valorIngresso * quantidadeIngressos}`)
+    }
+}
+
+jogoFutebol(tipoDeJogo, etapaDoJogo, categoria)
