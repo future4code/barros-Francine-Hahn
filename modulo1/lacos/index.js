@@ -104,20 +104,20 @@ while (true) {
 let arrayOriginal = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55]
 
 let imprimeCadaValor = array => {
-    for (numero of array) {
+    for (let numero of array) {
         console.log(numero)
     }
 }
 
 let imprimeValoresDivididoPor10 = array => {
-    for (numero of array) {
+    for (let numero of array) {
         console.log(numero / 10)
     }
 }
 
 let numParesDoArray = array => {
     let listaNumPares = []
-    for (numero of array) {
+    for (let numero of array) {
         if (numero % 2 === 0) {
             listaNumPares.push(numero)
         }
@@ -136,12 +136,12 @@ let criaNovoArray = array => {
 let maiorMenorNum = array => {
     let maiorNum = array[0]
     let menorNum = array[0]
-    for (numero of array) {
+    for (let numero of array) {
         if (numero <= menorNum) {
             menorNum = numero
         }
     }
-    for (numero of array) {
+    for (let numero of array) {
         if (numero >= maiorNum) {
             maiorNum = numero
         }
