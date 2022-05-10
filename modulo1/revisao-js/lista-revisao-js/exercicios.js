@@ -13,9 +13,18 @@ function retornaArrayInvertido(array) {
     return array.reverse()
 }
 
+// DESAFIO DO EXERCÍCIO 2
+const retornaArrayInvert = (array) => {
+    const arrayInvertido = []
+    for (let i = array.length - 1; i >= 0; i--) {
+        arrayInvertido.push(array[i])
+    }
+    return arrayInvertido
+}
+
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-  
+    return array.sort((a, b) => a - b)
 }
 
 // EXERCÍCIO 04
