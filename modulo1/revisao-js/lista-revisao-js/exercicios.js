@@ -130,8 +130,12 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-    
+    for(let i = 0; i < 3; i++){
+        consultas.sort((a, b) => a.dataDaConsulta.split('/')[i] > b.dataDaConsulta.split('/')[i]? 1 : a.dataDaConsulta.split('/')[i] < b.dataDaConsulta.split('/')[i]? -1: 0)
+    }
+    return consultas
 }
+
 
 
 // ------------------------------------------- DESAFIOS ------------------------------------------------
