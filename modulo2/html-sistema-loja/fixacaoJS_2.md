@@ -1,9 +1,9 @@
 ```function calculaPrecoTotal(quantidade) {
-  let precoMacas
+  let precoMaca
   if (quantidade < 12) {
-    precoMacas = quantidade * 1.3
+    precoMaca = quantidade * 1.3
   } else {
-    precoMacas = quantidade
+    precoMaca = quantidade
   }
-  return precoMacas
+  return precoMaca
 }```
