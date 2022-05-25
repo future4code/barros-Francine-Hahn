@@ -65,12 +65,14 @@ body {
 }
 
 .conteúdo-principal-lista {
-    border: 1px white solid;
-    display: inline;
+    border: 3px white solid;
+    margin: 15px 450px;
+    text-align: center;
+    padding: 15px;
 }
 
 .conteúdo-principal-lista-itens {
-    margin: 5px;
+    margin: 5px 70px 5px 70px;
 }
 
 .conteúdo-principal-tabela {
@@ -86,7 +88,18 @@ body {
 }
 
 .conteúdo-principal-form {
-    margin-top: 20px;
+    margin: 15px 450px;
+    text-align: center;
+    border: 3px solid white;
     padding: 15px;
-    border: 2px solid white;
+}
+
+.conteúdo-principal-form-botão {
+    background-color:rgb(148, 17, 224);
+    border-color: rgb(148, 17, 224);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: white;
+    padding: 5px;
+    margin-top: 15px;
 }
