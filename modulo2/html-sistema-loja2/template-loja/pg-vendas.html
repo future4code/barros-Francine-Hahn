@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="cabeçalho">
+        <img src="img/Logo.png" alt="Logo Animalia Pet Shop">
+        <h3 class="cabeçalho-título">Pet Shop Animalia</h3>
+    </header>
+    
+    <nav class="menu">
+        <a class="menu-item" href="index.html">Página Inicial</a>
+        <a class="menu-item" href="ctrl-estoque.html">Controle de Estoque</a>
+        <a class="menu-item" href="add-produto.html">Adicionar Produtos</a>
+        <a class="menu-item" href="funcionarios.html">Funcionários</a>
+        <a class="menu-item" href="pg-vendas.html">Vendas</a>
+    </nav>
+    
+    <main class="conteúdo-principal">
+        <h2>Concluir uma venda</h2>
+
+        <button class="conteúdo-principal-form-botão">
+            <a style="color: white;" href="pg-historico-vendas.html">Histórico de vendas</a>
+        </button>
+
+        <form class="conteúdo-principal-form" action="#">
+            <p>Selecione os produtos da venda:</p>
+            <label for="peitoral">Peitoral</label>
+            <input type="checkbox" id="peitoral" name="peitoral" value="peitoral">
+            
+            <label for="ração">Ração</label>
+            <input type="checkbox" id="ração" name="ração" value="ração">
+            <br>
+            <label for="arranhador">Arranhador para gatos</label>
+            <input type="checkbox" id="arranhador" name="arranhador" value="arranhador">
+            
+            <label for="roupa-inverno">Roupa de inverno</label>
+            <input type="checkbox" id="roupa-inverno" name="roupa-inverno" value="roupa-inverno">
+            <br>
+            <label for="roupa-verão">Roupa de verão</label>
+            <input type="checkbox" id="roupa-verão" name="roupa-verão" value="roupa-verão">
+            
+            <label for="shampoo">Shampoo</label>
+            <input type="checkbox" id="shampoo" name="shampoo" value="shampoo">
+            <br>
+            <label for="areia-gatos">Areia para gatos</label>
+            <input type="checkbox" id="areia-gatos" name="areia-gatos" value="areia-gatos">
+            
+            <label for="cama">Caminha</label>
+            <input type="checkbox" id="cama" name="cama" value="cama">
+            <br>
+            <label for="coleira">Coleira</label>
+            <input type="checkbox" id="coleira" name="coleira" value="coleira">
+            
+            <label for="petisco">Petisco</label>
+            <input type="checkbox" id="petisco" name="petisco" value="petisco">
+            <br>
+            <label for="antipulgas">Antipulgas</label>
+            <input type="checkbox" id="antipulgas" name="antipulgas" value="antipulgas">
+            <br>
+            <input class="conteúdo-principal-form-botão" type="submit">
+        </form>
+
+        <form class="conteúdo-principal-form" action="#">
+            <p>Selecione o tipo de pagamento:</p>
+            <label for="cartão">Cartão</label>
+            <input type="radio" id="cartão" name="pagamento" value="cartão">
+            <br>
+            <label for="dinheiro">Dinheiro</label>
+            <input type="radio" id="dinheiro" name="pagamento" value="dinheiro">
+            <br>
+            <input class="conteúdo-principal-form-botão" type="submit">
+        </form>
+
+        <div class="conteúdo-principal-lista">
+            <p>Produtos selecionados:</p>
+            <ul>
+                <li class="conteúdo-principal-lista-itens">
+                    Peitoral
+                </li>
+                <li class="conteúdo-principal-lista-itens">
+                    Ração
+                </li>
+                <li class="conteúdo-principal-lista-itens">
+                    Caminha
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="rodapé">
+        <p class="rodapé-título"><b>Siga-nos nas redes sociais!</b></p>
+
+        <a href="https://www.instagram.com/accounts/edit/">
+            <img src="img/Instagram.png" alt="Instagram" height="50px" width="50px">
+        </a>
+
+        <a href="https://www.facebook.com/francine.hahn.5/">
+            <img src="img/Facebook.png" alt="Facebook" height="50px" width="50px">
+        </a>
+        
+        <a href="https://www.linkedin.com/in/francine-hahn-4a0674149/">
+            <img src="img/Linkedin.png" alt="Linkedin" height="50px" width="50px">
+        </a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,114 @@
+/*RESET*/
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background-color: rgb(0, 218, 152);
+}
+
+/*CABEÇALHO*/
+.cabeçalho {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cabeçalho-título {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    color: white;
+}
+
+/*MENU*/
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 60px;
+    background-color: rgb(148, 17, 224);
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+.menu-item {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: white;
+}
+
+/*CONTEÚDO DO BODY*/
+.conteúdo-principal {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.conteúdo-principal-paragráfo {
+    margin: 12px;
+}
+
+/*RODAPÉ*/
+.rodapé {
+    text-align: center;
+    margin: 80px;
+}
+
+.rodapé-título {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/*LISTAS*/
+.conteúdo-principal-lista {
+    border: 3px white solid;
+    margin: 15px 450px;
+    text-align: center;
+    padding: 15px;
+}
+
+.conteúdo-principal-lista-itens {
+    margin: 5px 70px 5px 70px;
+}
+
+
+/*TABELA*/
+.conteúdo-principal-tabela {
+    margin: 30px 400px 50px 400px;
+}
+
+.conteúdo-principal-tabela-linha {
+    background-color: rgb(1, 172, 120);
+}
+
+.conteúdo-principal-tabela-linha-alternada {
+    background-color: rgb(4, 209, 147);
+}
+
+/*FORMULÁRIO*/
+.conteúdo-principal-form {
+    margin: 15px 450px;
+    text-align: center;
+    border: 3px solid white;
+    padding: 15px;
+}
+
+.conteúdo-principal-form-botão {
+    background-color:rgb(148, 17, 224);
+    border-color: rgb(148, 17, 224);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: white;
+    padding: 5px;
+    margin-top: 15px;
+}
