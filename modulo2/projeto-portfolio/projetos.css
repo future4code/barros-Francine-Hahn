@@ -1,0 +1,16 @@
+body {
+    font-size: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(img/background-outraspg.png);
+}
+
+.conteúdo-principal-imagem {
+    height: 250px;
+    width: 400px;
+}
+
+.conteúdo-principal-imagem:hover {
+    height: 251px;
+    width: 401px;
+    border: 3px white solid;
+}

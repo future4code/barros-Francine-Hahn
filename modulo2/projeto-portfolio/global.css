@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+ /* CONTEÚDO DO BODY */
+
+ .conteúdo-principal {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 70px 60px 45px 60px;
+}
+
+/* CABEÇALHO */
+.cabeçalho {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 24px;
+    border-bottom: 0.4px solid white;
+    margin-bottom: 35px;
+    position: sticky;
+    top: 0;
+}
+
+.cabeçalho-menu {
+    display: flex;
+    gap:52px;
+}
+
+.cabeçalho-menu-item {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: white;
+}
+
+.cabeçalho-menu-item:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+/* REDES SOCIAIS */
+.redes-sociais {
+    text-align: center;
+    margin: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: white;
+}
+
+
+/* RODAPÉ */
+.rodapé {
+    margin-left: 60px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+.rodapé-itens:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.conteúdo-principal-rodapé-título {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: white;
+    margin-bottom: 12px;
+    margin-top: 18px;
+}

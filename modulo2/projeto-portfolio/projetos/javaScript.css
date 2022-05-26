@@ -1,0 +1,35 @@
+.conteúdo-principal-título {
+    font-size: 34px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.conteúdo-principal-subtítulo {
+    font-size: 24px;
+    font-weight: 600;
+    color: rgb(255, 217, 0);
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.conteúdo-principal-table-parágrafo {
+    font-size: 18px;
+    color: white;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.conteúdo-principal-table-coluna {
+    padding-left: 100px;
+}
+
+.conteúdo-principal-table-lista {
+    font-size: 18px;
+    margin-left: 20px;
+    color: white;
+    text-align: justify;
+    margin-right: 10px;
+
+}
