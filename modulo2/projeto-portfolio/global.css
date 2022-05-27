@@ -8,6 +8,12 @@
 }
  /* CONTEÚDO DO BODY */
 
+ body {
+    font-size: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: linear-gradient(to right, rgb(0, 3, 39),rgb(4, 6, 105));
+}
+
  .conteúdo-principal {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 70px 60px 45px 60px;

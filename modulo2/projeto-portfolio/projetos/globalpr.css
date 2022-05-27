@@ -11,7 +11,7 @@
  body {
     font-size: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url(../img/background-outraspg.png);
+    background-image: linear-gradient(to right, rgb(0, 3, 39),rgb(4, 6, 105));
 }
 
 .conteúdo-principal {
