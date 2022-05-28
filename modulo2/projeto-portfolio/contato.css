@@ -46,7 +46,7 @@
 
 .conteúdo-formulário-botão {
     font-size: 18px;
-    color: rgb(6, 2, 61);
+    color: rgb(0, 3, 39);
     padding: 6px 15px;
     margin: 15px 168px 5px 168px;
     background-color:rgb(255, 217, 0);
@@ -58,7 +58,8 @@
     cursor: pointer;
 }
 
-.conteúdo-formulário-botão:hover {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+
+.conteúdo-formulário-botão:active {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
 }

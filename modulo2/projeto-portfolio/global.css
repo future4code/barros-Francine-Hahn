@@ -11,7 +11,7 @@
  body {
     font-size: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: linear-gradient(to right, rgb(0, 3, 39),rgb(4, 6, 105));
+    background-image: linear-gradient(to right, rgb(3, 4, 39), rgb(3, 4, 69), rgb(4, 4, 99));
 }
 
  .conteúdo-principal {
@@ -25,9 +25,12 @@
     flex-direction:row;
     align-items: center;
     justify-content: space-around;
+    background-image: linear-gradient(to right, rgb(3, 4, 39), rgb(3, 4, 69), rgb(4, 4, 99));
     padding: 24px;
     border-bottom: 0.4px solid white;
     margin-bottom: 35px;
+    position: sticky;
+    top: 0;
 }
 
 .cabeçalho-menu {
