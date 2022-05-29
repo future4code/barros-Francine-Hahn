@@ -1,23 +1,23 @@
 .conteúdo-principal-table-parágrafo {
-    font-size: 18px;
+    font-size: 1.13em;
     color: white;
     text-align: justify;
-    margin-bottom: 10px;
-    margin-right: 70px;
+    margin-bottom: 0.62em;
+    margin-right: 4.38em;
+    line-height: 1.5em;
 }
 
 .conteúdo-principal-table-lista {
-    font-size: 18px;
-    margin-left: 20px;
+    font-size: 1.13em;
+    margin-left: 1.25em;
     color: white;
     text-align: justify;
-    margin-right: 10px;
-
+    margin-right: 0.63em;
 }
 
 .conteúdo-principal-imagens {
-    margin-top: 5px;
-    height: 140px;
-    width: 340px;
+    margin-top: 0.32em;
+    height: 8.75em;
+    width: 21.25em;
     display: block;
 }

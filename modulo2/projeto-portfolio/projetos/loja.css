@@ -1,28 +1,20 @@
-.conteúdo-principal-subtítulo {
-    font-size: 24px;
-    font-weight: 600;
-    color: rgb(255, 217, 0);
-    margin-bottom: 5px;
-    margin-top: 10px;
-}
-
 .conteúdo-principal-table-parágrafo {
-    font-size: 18px;
+    font-size: 1.13em;
     color: white;
     text-align: justify;
-    margin-bottom: 10px;
-    margin-right: 60px;
+    margin-bottom: 0.63em;
+    margin-right: 3.75em;
+    line-height: 1.5em;
 }
 
 .conteúdo-principal-table-lista {
-    font-size: 18px;
-    margin-left: 20px;
+    font-size: 1.13em;
+    margin-left: 1.25em;
     color: white;
     text-align: justify;
-    margin-right: 10px;
-
+    margin-right: 0.63em;
 }
 
 .conteúdo-principal-table-coluna {
-    padding-top: 70px;
+    padding-top: 4.37em;
 }

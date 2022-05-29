@@ -15,8 +15,7 @@
 }
 
  .conteúdo-principal {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 70px 60px 45px 60px;
+    margin: 4.38em 3.75em 7.5em 3.75em;
 }
 
 /* CABEÇALHO */
@@ -26,21 +25,20 @@
     align-items: center;
     justify-content: space-around;
     background-image: linear-gradient(to right, rgb(3, 4, 39), rgb(3, 4, 69), rgb(4, 4, 99));
-    padding: 24px;
-    border-bottom: 0.4px solid white;
-    margin-bottom: 35px;
+    padding: 1.5em;
+    border-bottom: 0.025em solid white;
+    margin-bottom: 2.19em;
     position: sticky;
     top: 0;
 }
 
 .cabeçalho-menu {
     display: flex;
-    gap:52px;
+    gap: 3.3em;
 }
 
 .cabeçalho-menu-item {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
+    font-size: 1em;
     color: white;
 }
 
@@ -52,18 +50,17 @@
 /* REDES SOCIAIS */
 .redes-sociais {
     text-align: center;
-    margin: 40px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 15px;
+    margin: 2.5em;
+    font-size: 0.93em;
     color: white;
 }
 
 
 /* RODAPÉ */
 .rodapé {
-    margin-left: 60px;
-    margin-top: 100px;
-    margin-bottom: 30px;
+    margin-left: 3.75em;
+    margin-top: 9em;
+    margin-bottom: 1.88em;
 }
 
 .rodapé-itens:hover {
@@ -72,9 +69,8 @@
 }
 
 .conteúdo-principal-rodapé-título {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 15px;
+    font-size: 0.94em;
     color: white;
-    margin-bottom: 12px;
-    margin-top: 18px;
+    margin-bottom: 0.75em;
+    margin-top: 1.13em;
 }

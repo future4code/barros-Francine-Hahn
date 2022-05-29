@@ -1,37 +1,31 @@
-.conteúdo-principal-título {
-    font-size: 34px;
-    font-weight: 600;
-    color: white;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .conteúdo-principal-subtítulo {
-    font-size: 24px;
+    font-size: 1.5em;
     font-weight: 600;
     color: rgb(255, 217, 0);
-    margin-bottom: 5px;
-    margin-top: 10px;
+    margin-bottom: 0.3em;
+    margin-top: 0.6em;
 }
 
 .conteúdo-principal-table-parágrafo {
-    font-size: 18px;
+    font-size: 1.05em;
     color: white;
     text-align: justify;
-    margin-bottom: 10px;
+    margin-bottom: 1.1em;
+    line-height: 1.5em;
 }
 
 .conteúdo-principal-table-coluna {
-    padding-left: 100px;
+    padding-left: 4em;
 }
 
 .conteúdo-principal-table-lista {
-    font-size: 18px;
-    margin: 0px 10px 0px 20px;
+    font-size: 1.05em;
+    line-height: 1.5em;
+    margin: 0em 0.6em 0em 1.25em;
     color: white;
     text-align: justify;
 }
 
 .conteúdo-principal-table-li {
-    margin-top: 5px;
+    margin-top: 0.5em;
 }
