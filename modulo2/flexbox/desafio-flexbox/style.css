@@ -1,0 +1,103 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    color: rgb(8, 0, 0);
+}
+
+.green-background {
+    background-color: green;
+    padding: 1em 0;
+    width: 25%;
+}
+
+.yellow-background {
+    background-color: yellow;
+    padding: 1em 0;
+    width: 75%;
+}
+
+.pink-background {
+    display: flex;
+    justify-content: center;
+    background-color: fuchsia;
+    padding: 18.5em 0;
+}
+
+.blue-background {
+    background-color: blue;
+}
+
+.red-background {
+    background-color: red;
+}
+
+.lightgreen-background {
+    background-color: lightgreen;
+}
+
+.purple-background {
+    background-color: purple;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1em 0;
+}
+
+#top-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#top-container > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#middle-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#content2 {
+   display: flex;
+   flex-direction: row;
+   width: 50%;
+   background-color: blue;
+   padding: 6.5em 0;
+   justify-content: center;
+}
+
+#blank {
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    padding: 6.5em 0;
+    justify-content: center;
+}
+
+#vertical-middle-container {
+    display:flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+#image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: red;
+    padding: 3.25em 0;
+}
+
+#extra {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: lightgreen;
+    padding: 3.25em 0;
+}
+
