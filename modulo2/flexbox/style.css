@@ -30,15 +30,15 @@ aside {
     display: flex;
     flex-direction: column;
     padding: 0.9em;
-    gap: 1em;
+    gap: 1.1em;
     background-color: #f2d0e0;
+    width: 75%;
 }
 
 aside > section {
     display: flex;
     flex-direction: row;
-    gap: 0.5em;
-    justify-content: flex-start;
+    gap: 0.6em;
 }
 
 .aside-icone-seta {
@@ -55,7 +55,7 @@ h2 {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1.3em;
+    gap: 1.5em;
 } 
 
 main > section {
