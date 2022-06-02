@@ -1,0 +1,20 @@
+.conteúdo-principal-table-parágrafo {
+    font-size: 1.13em;
+    color: white;
+    text-align: justify;
+    margin-bottom: 0.63em;
+    margin-right: 3.75em;
+    line-height: 1.5em;
+}
+
+.conteúdo-principal-table-lista {
+    font-size: 1.13em;
+    margin-left: 1.25em;
+    color: white;
+    text-align: justify;
+    margin-right: 0.63em;
+}
+
+.conteúdo-principal-table-coluna {
+    padding-top: 4.37em;
+}

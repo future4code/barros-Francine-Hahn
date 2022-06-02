@@ -1,0 +1,64 @@
+/* FORMULÁRIO DA PÁGINA DE CONTATO */
+.conteúdo-formulário {
+    text-align: center;
+}
+
+.conteúdo-formulário-título {
+    font-size: 1.7em;
+    color: rgb(255, 217, 0);
+}
+
+.conteúdo-formulário-parágrafo {
+    font-size: 1.1em;
+    color: white;
+    margin: 0.6em;
+}
+
+.conteúdo-formulário-contato {
+    margin: 1.3em 28.1em;
+    text-align: center;
+    border: 0.18em solid white;
+    padding: 0.93em;
+}
+
+.conteúdo-formulário-label {
+    font-size: 1.1em;
+    color: white;
+    margin: 0.63em;
+    display: block;
+}
+
+.conteúdo-formulário-input {
+    padding: 0.5em 5.7em 0.5em 5.7em;
+    margin: 0.19em 0.93em 0.19em 0.93em;
+    display: block;
+    font-size: 1em;
+    text-align: center;
+}
+
+#conteúdo-formulário-msg {
+    padding: 0.5em 5.7em 5em 5.7em;
+    margin: 0.19em 0.93em 0.19em 0.93em;
+    display: block;
+    font-size: 1em;
+}
+
+.conteúdo-formulário-botão {
+    font-size: 1.1em;
+    color: rgb(0, 3, 39);
+    padding: 0.38em 0.93em;
+    margin: 0.93em 10.5em 0.3em 9.4em;
+    background-color:rgb(255, 217, 0);
+    border-color: rgb(223, 188, 33);
+    border-style: outset;
+    border-radius: 0.3em;
+    box-shadow: 0em 0.06em 0em 0em rgb(177, 177, 176);
+    display: block;
+    cursor: pointer;
+}
+
+
+.conteúdo-formulário-botão:active {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+}

@@ -1,0 +1,51 @@
+/* CONTEÚDO DA PÁGINA INICIAL */
+
+.conteúdo-index {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.conteúdo-título-index {
+    font-size: 3.3em;
+    color: white;
+    text-shadow: 0.13em 0.13em 1.19em rgb(0, 0, 5);
+    font-weight: 500;
+    margin: 1.5em 0em 0.5em 0em;
+    text-align: center;
+}
+
+.conteúdo-subtítulo-index {
+    font-size: 1.4em;
+    color: white;
+    text-shadow: 0.13em 0.13em 1.19em rgb(1, 0, 7);
+    font-weight: 400;
+    margin: 0.62em;
+    text-align: center;
+}
+
+
+/* BOTÃO DA PÁGINA INICIAL */
+.conteúdo-formulário-index {
+    margin: 3.5em;
+    text-align: center;
+}
+
+.botão-index {
+    font-size: 1.2em;
+    color: rgb(0, 3, 39);
+    padding: 0.5em 4.8em 0.5em 4.8em;
+    background-color: rgb(255, 217, 0);
+    border-color: rgb(255, 188, 33);
+    border-style: outset;
+    border-radius: 2em;
+    box-shadow: 0.01em 0.01em 0.1em rgb(179, 179, 179);
+    cursor: pointer;
+}
+
+.botão-index:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}

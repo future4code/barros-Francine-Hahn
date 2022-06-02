@@ -1,0 +1,8 @@
+.conteúdo-principal-imagem {
+    height: 15.6em;
+    width: 25em;
+}
+
+.conteúdo-principal-imagem:hover {
+    border: 0.19em white solid;
+}
