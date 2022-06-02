@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: orange;
+    display: grid;
+    grid-template-columns: 85% 15%;
+    align-items: center;
+    justify-items: flex-start;
+    padding: 1em;
+}
+
+header > div > a {
+    font-size: 1.8em;
+    font-weight: 600;
+    text-shadow: 0.08em 0.08em 0.1em rgba(0, 0, 0, 0.349);
+    text-decoration: none;
+    color: black;
+}
+
+header > div > a:hover {
+    color:rgb(1, 105, 53);
+}
+
+.busca {
+    padding: 0.5em 0 0.5em 0.5em;
+    margin-left: 1em;
+}
+
+main > div {
+    border: 0.1em solid green;
+}
+
+footer {
+    display: grid;
+    background-color: black;
+    margin-top: 5em;
+    padding: 1em;
+}
+
+footer > h2 {
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    padding-bottom: 0.5em;
+}
+
+footer > h4 {
+    color: white;
+    font-size: 0.8em;
+    text-align: center;
+}
