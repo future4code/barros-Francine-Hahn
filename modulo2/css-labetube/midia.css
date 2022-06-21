@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+main {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+main > aside {
+    background-color: rgba(230, 228, 225, 0.521);
+    padding-top: 2em;
+    display: grid;
+    grid-template-rows: 25% 25% 25% 25%;
+    justify-items: center;
+}
+
+main > section {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;   
+}
+
+main > section > h1 {
+    text-align: center;
+    font-size: 2em;
+    text-shadow: 0.05em 0.05em 0.08em rgba(0, 0, 0, 0.438);
+    margin: 1em 0;
+}
+
+main > section > p {
+    text-align: left;
+    padding: 2em 10em 2em 10em;
+}
