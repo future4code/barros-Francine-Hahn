@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  width: 24%;
+  pointer-events: none;
+  border-radius: 5px;
+}
+
+.App-title {
+  font-size: 32px;
+  color: black;
+}
+
+.App-paragrafo {
+  color: black;
+}
+
+.App-button {
+  padding: 7px;
+  border-radius: 8px;
+  border-width: 1px;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.274);
+}
+
+.App-button:hover {
+  background-color: rgba(199, 198, 198, 0.671);
+}
+
+.App-header {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
