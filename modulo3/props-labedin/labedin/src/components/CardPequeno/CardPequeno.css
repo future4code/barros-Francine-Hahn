@@ -1,0 +1,22 @@
+.containerMaior {
+    display: flex;
+    margin-bottom: 50px;
+    border: 1px solid black;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.253);
+    padding: 20px;
+    width: 550px;
+    gap: 10px;
+}
+
+.containerMenor {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    gap:10px;
+}
+
+.containerMaior > img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
