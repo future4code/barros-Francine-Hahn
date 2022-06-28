@@ -1,0 +1,10 @@
+.container-botoes {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 7px 0;
+}
+
+.botao {
+    cursor: pointer;
+}
