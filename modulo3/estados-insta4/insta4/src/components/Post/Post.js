@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import './style.css'
+import React, {useState} from 'react';
+import {PostContainer, PostHeader, UserPhoto, PostPhoto, PostFooter} from '../../style';
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
@@ -14,29 +14,20 @@ import {SecaoCompartilhar} from '../SecaoCompartilhar/SecaoCompartilhar'
 
 
 function Post(props){
-  const [state, setState] = useState({
-    curtido: false,
-    numeroCurtidas: 0,
-    comentando: false,
-    numeroComentarios: 0,
-    salvo: false,
-    numeroSalvamentos: 0,
-    compartilhando: false,
-    numeroCompartilhamentos: 0
-  })
-
-  const [numeroCurtidas, setNumeroCurtidas] = useState (0)
-  const [curtido, setCurtido] = useState(false)
-  const [comentando, setComentando] = useState(false)
-  const [numeroComentarios, setNumeroComentarios] = useState(0)
-  const [salvo, setSalvo] = useState(false)
-  const [numeroSalvamentos, setNumeroSalvamentos] = useState(0)
-  const [compartilhando, setCompartilhando] = useState(false)
-  const [numeroCompartilhamentos, setNumeroCompartilhamentos] = useState(0)
+  const [arrayPost, setArrayPost] = useState(
+    {'numeroCurtidas': 0,
+    'curtido': 'false',
+    'numeroComentarios': 0,
+    'comentando': 'false',
+    'salvo': 'false',
+    'numeroSalvamentos': 0,
+    'compartilhando': 'false',
+    'numeroCompartilhamentos': 0})
+  
 
   //Cor do coração quando usuário clica no ícone
   let iconeCurtida
-  if(curtido) {
+  if(arrayPost.curtido === 'true') {
     iconeCurtida = iconeCoracaoPreto
   } else {
     iconeCurtida = iconeCoracaoBranco
@@ -45,40 +36,65 @@ function Post(props){
   //Quando o usuário clica no ícone de coração
   const onClickCurtida = () => {
     console.log('Curtiu!')
-    if (!curtido) {
-      setNumeroCurtidas(numeroCurtidas + 1)
-      setCurtido(!curtido)
+    if (arrayPost.curtido === 'false') {
+      setArrayPost({'numeroCurtidas': arrayPost.numeroCurtidas + 1,
+        'curtido': 'true',
+        'numeroComentarios': arrayPost.numeroComentarios,
+        'comentando': arrayPost.comentando,
+        'salvo': arrayPost.salvo,
+        'numeroSalvamentos': arrayPost.numeroSalvamentos,
+        'compartilhando': arrayPost.compartilhando,
+        'numeroCompartilhamentos': arrayPost.numeroCompartilhamentos})
     } else {
-      setNumeroCurtidas(numeroCurtidas - 1)
-      setCurtido(!curtido)
+      setArrayPost({'numeroCurtidas': arrayPost.numeroCurtidas - 1,
+        'curtido': 'false',
+        'numeroComentarios': arrayPost.numeroComentarios,
+        'comentando': arrayPost.comentando,
+        'salvo': arrayPost.salvo,
+        'numeroSalvamentos': arrayPost.numeroSalvamentos,
+        'compartilhando': arrayPost.compartilhando,
+        'numeroCompartilhamentos': arrayPost.numeroCompartilhamentos})
     }
   }
   
   //Quando o usuário clica no ícone de comentário
   let componenteComentario
   const onClickComentario = () => {
-    setComentando(!comentando)
-    if(comentando) {
+    setArrayPost({'numeroCurtidas': arrayPost.numeroCurtidas,
+      'curtido': arrayPost.curtido,
+      'numeroComentarios': arrayPost.numeroComentarios,
+      'comentando': 'true',
+      'salvo': arrayPost.salvo,
+      'numeroSalvamentos': arrayPost.numeroSalvamentos,
+      'compartilhando': arrayPost.compartilhando,
+      'numeroCompartilhamentos': arrayPost.numeroCompartilhamentos})
+    if(arrayPost.comentando === 'false') {
       componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario}/>
     }
-    console.log(comentando)
+    console.log(arrayPost.comentando)
   }
   
 
   //Quando o usuário clica no botão enviar comentário
   const aoEnviarComentario = () => {
-    setComentando(false)
-    setNumeroComentarios(numeroComentarios + 1)
+    setArrayPost({'numeroCurtidas': arrayPost.numeroCurtidas,
+      'curtido': arrayPost.curtido,
+      'numeroComentarios': arrayPost.numeroComentarios + 1,
+      'comentando': 'falso',
+      'salvo': arrayPost.salvo,
+      'numeroSalvamentos': arrayPost.numeroSalvamentos,
+      'compartilhando': arrayPost.compartilhando,
+      'numeroCompartilhamentos': arrayPost.numeroCompartilhamentos})
   }
 
-  //Não entendi porque esse código precisa se repetir para a sessão comentário aparecer
-  if(comentando) {
+  //Após o envio do comentário, a sessão de comentários desaparece
+  if(arrayPost.comentando === 'true') {
     componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario}/>
   }
 
   //Cor do ícone de salvamento quando usuário clica no ícone
   let iconeSalvar
-  if(salvo) {
+  if(arrayPost.salvo === 'true') {
     iconeSalvar = iconeSalvoPreto
   } else {
     iconeSalvar = iconeSalvoBranco
@@ -86,83 +102,123 @@ function Post(props){
 
   //Quando usuário clica no ícone de salvar
   const onClickSalvar = () => {
-    if (!salvo) {
-      setNumeroSalvamentos(numeroSalvamentos + 1)
-      setSalvo(!salvo)
+    if (arrayPost.salvo === 'false') {
+      setArrayPost({'numeroCurtidas': arrayPost.numeroCurtidas,
+      'curtido': arrayPost.curtido,
+      'numeroComentarios': arrayPost.numeroComentarios,
+      'comentando': arrayPost.comentando,
+      'salvo': 'true',
+      'numeroSalvamentos': arrayPost.numeroSalvamentos + 1,
+      'compartilhando': arrayPost.compartilhando,
+      'numeroCompartilhamentos': arrayPost.numeroCompartilhamentos})
     } else {
-      setNumeroSalvamentos(numeroSalvamentos - 1)
-      setSalvo(!salvo)
+      setArrayPost({'numeroCurtidas': arrayPost.numeroCurtidas,
+      'curtido': arrayPost.curtido,
+      'numeroComentarios': arrayPost.numeroComentarios,
+      'comentando': arrayPost.comentando,
+      'salvo': 'false',
+      'numeroSalvamentos': arrayPost.numeroSalvamentos - 1,
+      'compartilhando': arrayPost.compartilhando,
+      'numeroCompartilhamentos': arrayPost.numeroCompartilhamentos})
     }
   }
 
   //Quando o usuário clica no ícone de compartilhamento
   let componenteCompartilhar
   const onClickCompartilhar = () => {
-    setCompartilhando(!compartilhando)
-    if(compartilhando) {
+    setArrayPost({'numeroCurtidas': arrayPost.numeroCurtidas,
+      'curtido': arrayPost.curtido,
+      'numeroComentarios': arrayPost.numeroComentarios,
+      'comentando': arrayPost.comentando,
+      'salvo': arrayPost.salvo,
+      'numeroSalvamentos': arrayPost.numeroSalvamentos,
+      'compartilhando': 'true',
+      'numeroCompartilhamentos': arrayPost.numeroCompartilhamentos})
+    if(arrayPost.compartilhando === 'false') {
       componenteCompartilhar = <SecaoCompartilhar aoClicarInstagram={aoCompartilharInstagram} aoClicarFacebook={aoCompartilharFacebook} aoClicarTwitter={aoCompartilharTwitter}/>
     }
   }
   
   //Quando o usuário clica no botão compartilhar no Instagram
   const aoCompartilharInstagram = () => {
-    setNumeroCompartilhamentos(numeroCompartilhamentos + 1)
+    setArrayPost({'numeroCurtidas': arrayPost.numeroCurtidas,
+      'curtido': arrayPost.curtido,
+      'numeroComentarios': arrayPost.numeroComentarios,
+      'comentando': arrayPost.comentando,
+      'salvo': arrayPost.iconeSalvoPreto,
+      'numeroSalvamentos': arrayPost.numeroSalvamentos,
+      'compartilhando': 'false',
+      'numeroCompartilhamentos': arrayPost.numeroCompartilhamentos + 1})
     console.log('Você compartilhou no seu Instagram!')
   }
 
   //Quando o usuário clica no botão compartilhar no Facebook
   const aoCompartilharFacebook = () => {
-    setNumeroCompartilhamentos(numeroCompartilhamentos + 1)
+    setArrayPost({'numeroCurtidas': arrayPost.numeroCurtidas,
+      'curtido': arrayPost.curtido,
+      'numeroComentarios': arrayPost.numeroComentarios,
+      'comentando': arrayPost.comentando,
+      'salvo': arrayPost.iconeSalvoPreto,
+      'numeroSalvamentos': arrayPost.numeroSalvamentos,
+      'compartilhando': 'false',
+      'numeroCompartilhamentos': arrayPost.numeroCompartilhamentos + 1})
     console.log('Você compartilhou no seu Facebook!')
   }
 
   //Quando o usuário clica no botão compartilhar no Twitter
   const aoCompartilharTwitter = () => {
-    setNumeroCompartilhamentos(numeroCompartilhamentos + 1)
+    setArrayPost({'numeroCurtidas': arrayPost.numeroCurtidas,
+      'curtido': arrayPost.curtido,
+      'numeroComentarios': arrayPost.numeroComentarios,
+      'comentando': arrayPost.comentando,
+      'salvo': arrayPost.iconeSalvoPreto,
+      'numeroSalvamentos': arrayPost.numeroSalvamentos,
+      'compartilhando': 'false',
+      'numeroCompartilhamentos': arrayPost.numeroCompartilhamentos + 1})
     console.log('Você compartilhou no seu Twitter!')
   }
 
-  if(compartilhando) {
+  if(arrayPost.compartilhando === 'true') {
     componenteCompartilhar = <SecaoCompartilhar aoClicarInstagram={aoCompartilharInstagram} aoClicarFacebook={aoCompartilharFacebook} aoClicarTwitter={aoCompartilharTwitter}/>
   }
 
   return(
-    <div className = 'PostContainer'>
-      <div className = 'PostHeader'>
-        <img className = 'UserPhoto' src={props.fotoUsuario} alt={'Imagem do usuario'}/>
+    <PostContainer>
+      <PostHeader>
+        <UserPhoto src={props.fotoUsuario} alt={'Imagem do usuario'}/>
         <p>{props.nomeUsuario}</p>
-      </div>
+      </PostHeader>
 
-      <img className = 'PostPhoto'src={props.fotoPost} alt={'Imagem do post'}/>
+      <PostPhoto src={props.fotoPost} alt={'Imagem do post'}/>
 
-      <div className = 'PostFooter'>
+      <PostFooter>
         <IconeComContador
-          icone={iconeCurtida}
+          icone={iconeCurtida} 
           onClickIcone={onClickCurtida}
-          valorContador={numeroCurtidas}
+          valorContador={arrayPost.numeroCurtidas}
         />
 
         <IconeComContador
           icone={iconeComentario}
           onClickIcone={onClickComentario}
-          valorContador={numeroComentarios}
+          valorContador={arrayPost.numeroComentarios}
         />
 
         <IconeComContador
           icone={iconeSalvar}
           onClickIcone={onClickSalvar}
-          valorContador={numeroSalvamentos}
+          valorContador={arrayPost.numeroSalvamentos}
         />
 
         <IconeComContador
           icone={iconeCompartilhar}
           onClickIcone={onClickCompartilhar}
-          valorContador={numeroCompartilhamentos}
+          valorContador={arrayPost.numeroCompartilhamentos}
         />
-      </div>
+      </PostFooter>
       {componenteComentario}
       {componenteCompartilhar}
-    </div>
+    </PostContainer>
   )
 }
 
