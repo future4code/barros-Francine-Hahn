@@ -74,5 +74,13 @@ export const Botao = styled.button `
     cursor: pointer;
 `
 
-
-
+export const Formulario = styled.form `
+    width: 22%;
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    button, input {
+        padding: 4px 0;
+    }
+`
