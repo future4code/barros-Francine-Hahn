@@ -5,10 +5,10 @@ export const HeaderSection = styled.header `
     height: 4vh;
     padding: 1vh 0;
     display: flex;
-    gap: 7vw;
+    gap: 4vw;
     border-bottom: 1px solid lightgrey;
     button {
-        margin-left: 1vw;
+        margin: 0 1vw;
         background-color: white;
         width: 2vw;
         img {

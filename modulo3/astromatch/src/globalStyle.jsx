@@ -6,7 +6,7 @@ export const GeneralContainer = styled.section `
     display: block;
     width: 25vw;
     margin: 5vh auto;
-    border: 1px solid black;
+    border: 1px solid grey;
     border-radius: 5px;
     button {
         cursor: pointer;

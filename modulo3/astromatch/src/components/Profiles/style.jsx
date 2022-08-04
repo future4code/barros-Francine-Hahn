@@ -3,14 +3,20 @@ import styled from "styled-components";
 
 export const Card = styled.section `
     padding: 20px;
-    h3 {
+    min-height: 70vh;
+    section {
         margin-top: -15vh;
+        min-height: 10vh;
+        background-color: #140026aa;
+        position: relative;
+        h3 {
         padding: 0 15px 5px 15px;
         color: white;
-    }
-    p {
-        padding: 0 15px;
-        color: white;
+        }
+        p {
+            padding: 0 15px;
+            color: white;
+        }
     }
 `
 
@@ -24,10 +30,9 @@ export const Photo = styled.img `
 
 
 export const ButtonSection = styled.div `
-    margin: 8vh 0 6vh 0;
+    margin: 8vh 0 6vh -1vw;
     display: flex;
-    justify-content: center;
-    gap: 8vw;
+    justify-content: space-around;
     button {
         background-color: white;
         height: 1vh;

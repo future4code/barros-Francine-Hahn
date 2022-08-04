@@ -16,43 +16,44 @@ export function Profiles() {
         ).catch(err => console.log(err.response))
     }, [])
     
-   
-    const handleDeslike = () => {
-        const body = {
-            'id': user.id,
-            'choice': false
-        }
 
-        axios.post('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/francine-hahn-barros/choose-person',
-        body).then(() => console.log("It's NOT a match!")).catch(err => console.log(err))
-        
-        
+    //Escolher perfil toda vez que clica no like ou deslike
+    const chooseProfile = () => {
         axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/francine-hahn-barros/person').then(
         response => setUser(response.data.profile)
         ).catch(err => console.log(err))
     }
+   
 
+    //Quando usuário clica no like
+    const handleDeslike = () => {
+        const body = {
+            id: user.id,
+            choice: false
+        }
+        axios.post('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/francine-hahn-barros/choose-person',
+        body).then(chooseProfile()).catch(err => console.log(err))
+    }
+
+
+    //Quando usuário clica no deslike
     const handleLike = () => {
         const body = {
-            'id': user.id,
-            'choice': true
+            id: user.id,
+            choice: true
         }
-
         axios.post('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/francine-hahn-barros/choose-person',
-        body).then((response) => response.data.isMatch === true && alert("It's a match!")).catch(err => console.log(err))
-
-        axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/francine-hahn-barros/person').then(
-        response => setUser(response.data.profile)
-        ).catch(err => console.log(err.response))
+        body).then(chooseProfile()).catch(err => console.log(err))
     }
 
 
     return (
         <Card>
             <Photo src={user.photo} alt={user.photo_alt}/>
-            <h3>{user.name}, {user.age}</h3>
-            <p>{user.bio}</p>
-        
+            <section>
+                <h3>{user.name}, {user.age}</h3>
+                <p>{user.bio}</p>
+            </section>
             <ButtonSection>
                 <button onClick={handleDeslike}>
                     <img src={iconx} alt={'Ícone com um x representasndo um deslike'}/>
