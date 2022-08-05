@@ -1,19 +1,22 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
+import {GeneralContainer, ProfilesSection} from './GlobalStyle'
 import {Header} from './components/Header/Header'
 import {Matches} from './components/Matches/Matches'
-import {Profiles} from './components/Profiles/Profiles'
-import {GeneralContainer} from './globalStyle'
+import {ProfileCard} from './components/ProfileCard/ProfileCard'
+import img from './img/icon-broken-heart.png'
 
 
 function App() {
+
   const [showMatches, setShowMatches] = useState(false)
   const [matches, setMatches] = useState([])
-
-
+  
   return (
     <GeneralContainer>
-      <Header showMatches={showMatches} setShowMatches={setShowMatches} setMatches={setMatches}/>
-      {showMatches? <Matches matches={matches}/> : <Profiles/>}
+      <ProfilesSection image={img}>
+          <Header showMatches={showMatches} setShowMatches={setShowMatches} setMatches={setMatches}/>
+          {showMatches? <Matches matches={matches}/> : <ProfileCard/>}
+      </ProfilesSection>
     </GeneralContainer>
   )
 }

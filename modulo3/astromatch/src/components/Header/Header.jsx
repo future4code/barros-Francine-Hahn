@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import axios from 'axios'
 import {HeaderSection} from './style'
 import iconPeople from '../../img/match-icon.png'
@@ -36,8 +36,7 @@ export function Header(props) {
             )}
 
             <div>
-                <h1>astro</h1>
-                <h1>match</h1>
+                <h1>astromatch</h1>
             </div>
         </HeaderSection>
     )

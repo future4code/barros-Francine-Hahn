@@ -1,21 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import {Photo, Card, ButtonSection} from './style'
+import {Card, Photo, ButtonSection} from './style'
 import iconx from '../../img/icon-x.png'
 import iconheart from '../../img/iconheart.png'
 
 
-export function Profiles() {
+export function ProfileCard() {
 
     const [user, setUser] = useState([])
-
-
-    useEffect(() => {
-        axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/francine/person').then(
-        response => setUser(response.data.profile)
-        ).catch(err => console.log(err.response))
-    }, [])
-    
 
     //Escolher perfil toda vez que clica no like ou deslike
     const chooseProfile = () => {
@@ -23,6 +15,9 @@ export function Profiles() {
         response => setUser(response.data.profile)
         ).catch(err => console.log(err))
     }
+
+
+    useEffect(() => {chooseProfile()}, [])
    
 
     //Quando usuário clica no like
@@ -31,6 +26,7 @@ export function Profiles() {
             id: user.id,
             choice: false
         }
+
         axios.post('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/francine-hahn-barros/choose-person',
         body).then(chooseProfile()).catch(err => console.log(err))
     }
@@ -42,10 +38,10 @@ export function Profiles() {
             id: user.id,
             choice: true
         }
+        
         axios.post('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/francine-hahn-barros/choose-person',
         body).then(chooseProfile()).catch(err => console.log(err))
     }
-
 
     return (
         <Card>

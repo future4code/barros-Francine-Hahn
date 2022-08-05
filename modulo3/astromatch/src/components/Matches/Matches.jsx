@@ -1,16 +1,19 @@
 import React from 'react'
 import axios from 'axios'
-import {CardMatches, ContainerMatches, NoMatches} from './style'
+import {CardMatches, ContainerMatches, NoMatches, DeleteButton} from './style'
 import iconBrobekHeart from '../../img/icon-broken-heart.png'
+import iconDelete from '../../img/iconDelete.png'
 
 
 export function Matches(props) {
 
     //Limpar matches e perfis vistos
     const handleClear = () => {
-        axios.put('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/francine-hahn-barros/clear').then(
-          response => alert('Seus matches foram excluídos')
-        ).catch(err => console.log(err))
+        const conf = confirm('Tem certeza que quer excluir os seus matches?')
+        if(conf === true) {
+            axios.put('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/francine-hahn-barros/clear').then(alert('Seus matches foram excluidos'
+            )).catch(err => console.log(err))
+        }
     }
     
     
@@ -35,7 +38,9 @@ export function Matches(props) {
                 </div>
             )}
 
-            <button onClick={handleClear}>Limpar matches</button>
+            <DeleteButton onClick={handleClear}>
+                <img src={iconDelete} alt={'Ícone de uma lixeira'}/>
+            </DeleteButton>
         </ContainerMatches>
     )
 }
