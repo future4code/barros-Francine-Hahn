@@ -34,6 +34,29 @@ export const Card = styled.section `
     }
 `
 
+export const MatchTitle = styled.h2 `
+    opacity: 0;
+    font-size: 1px;
+    color: white;
+    border-radius: 5px;
+    background: linear-gradient(45deg, red, #ff6600,#f63e75, #f9164b);
+    text-align: center;
+    @keyframes appear {
+        from {
+            opacity: 1;
+            font-size: 2rem;
+            padding: 10px 0;
+            transformY: translate(100px);
+        }
+        to {
+            opacity: 0;
+            font-size: 1px;
+            transformY: translate(0px);
+        }
+    }
+    animation: appear 4s;
+`
+
 
 export const Photo = styled.img `
     width: 100%;
@@ -61,10 +84,27 @@ export const Photo = styled.img `
 export const ButtonSection = styled.div `
     display: flex;
     justify-content: space-around;
+    
+    @keyframes hover {
+        from {opacity: .5}
+        to {opacity: 1}
+    }
+
+    @keyframes activeAnimation {
+        from {transform: translateY(3px)}
+        to {transform: translateY(-3px)}
+    }
+
     button {
         background-color: white;
-        border: 8px solid #e4e2e9;
+        border: 8px solid #eaeaea;
         border-radius: 50%;
+        :hover {
+            animation: hover 2s;
+        }
+        :active {
+            animation: activeAnimation 1s;
+        }
         img {
             border-radius: 50%;
         }

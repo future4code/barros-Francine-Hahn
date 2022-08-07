@@ -9,6 +9,22 @@ export const HeaderSection = styled.header `
     margin-bottom: 2vh;
     button {
         background-color: white;
+        :active {
+            @keyframes active {
+                from {transform: translate(3px)}
+                to {transform: translate(-3px)}
+            }
+            animation: active 1s;
+        }
+        img {
+            :hover {
+                @keyframes opacity {
+                    from {opacity: .5}
+                    to {opacity: 1}
+                }
+                animation: opacity 2s;
+            }
+        }
     }
     div {
         display: flex;
@@ -29,7 +45,7 @@ export const HeaderSection = styled.header `
     }
     @media screen and (min-width: 1200px) and (max-width: 1400px) {
         height: 4vh;
-        gap: 8vw;
+        gap: 11vw;
         button {
             margin-left: 1vw;
             img {
@@ -39,7 +55,7 @@ export const HeaderSection = styled.header `
     }
     @media screen and (min-width: 1000px) and (max-width: 1200px) {
         height: 4vh;
-        gap: 8vw;
+        gap: 10vw;
         button {
             margin-left: 0.5vw;
             img {
@@ -49,7 +65,7 @@ export const HeaderSection = styled.header `
     }
     @media screen and (min-width: 900px) and (max-width: 1000px) {
         height: 4vh;
-        gap: 15vw;
+        gap: 17vw;
         button {
             margin-left: 1vw;
             img {
@@ -59,7 +75,7 @@ export const HeaderSection = styled.header `
     }
     @media screen and (min-width: 800px) and (max-width: 900px) {
         height: 4vh;
-        gap: 13vw;
+        gap: 15vw;
         button {
             margin-left: 1vw;
             img {
@@ -69,7 +85,7 @@ export const HeaderSection = styled.header `
     }
     @media screen and (min-width: 600px) and (max-width: 800px) {
         height: 4vh;
-        gap: 22vw;
+        gap: 26vw;
         button {
             margin-left: 1vw;
             img {
@@ -88,8 +104,8 @@ export const HeaderSection = styled.header `
         }
     }
     @media screen and (min-width: 320px) and (max-width: 500px) {
-        height: 4vh;
-        gap: 22vw;
+        height: 3vh;
+        gap: 19vw;
         button {
             margin-left: 1vw;
             img {

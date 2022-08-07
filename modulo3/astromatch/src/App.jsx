@@ -3,7 +3,6 @@ import {GeneralContainer, ProfilesSection} from './GlobalStyle'
 import {Header} from './components/Header/Header'
 import {Matches} from './components/Matches/Matches'
 import {ProfileCard} from './components/ProfileCard/ProfileCard'
-import img from './img/icon-broken-heart.png'
 
 
 function App() {
@@ -13,7 +12,7 @@ function App() {
   
   return (
     <GeneralContainer>
-      <ProfilesSection image={img}>
+      <ProfilesSection>
           <Header showMatches={showMatches} setShowMatches={setShowMatches} setMatches={setMatches}/>
           {showMatches? <Matches matches={matches}/> : <ProfileCard/>}
       </ProfilesSection>

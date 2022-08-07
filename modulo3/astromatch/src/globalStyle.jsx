@@ -5,8 +5,8 @@ export const GeneralContainer = styled.section `
     font-family: Arial, Helvetica, sans-serif;
     background: linear-gradient(45deg, red, #ff6600,#f63e75, #f9164b);
     background-size: 150%;
-    min-height: 95vh;
-    padding-top: 5vh;
+    min-height: 96vh;
+    padding-top: 4vh;
 
     @keyframes gradient {
         0% {background-position: 100% 10%}
@@ -43,7 +43,7 @@ export const GeneralContainer = styled.section `
             font-size: 21px;
         }
         @media screen and (min-width: 320px) and (max-width: 420px) {
-            font-size: 19px;
+            font-size: 20px;
         }
     }
     p {
@@ -93,10 +93,10 @@ export const ProfilesSection = styled.section `
     }
     @media screen and (min-width: 420px) and (max-width: 600px) {
         min-height: 75vh;
-        width: 85vw;
+        width: 82vw;
     }
     @media screen and (min-width: 320px) and (max-width: 420px) {
         min-height: 70vh;
-        width: 85vw;
+        width: 80vw;
     }
 `
