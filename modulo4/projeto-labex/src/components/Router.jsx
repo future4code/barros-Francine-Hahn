@@ -6,6 +6,7 @@ import {HomePage} from './Pages/HomePage/HomePage';
 import { LoginPage } from "./Pages/LoginPage/LoginPage";
 import { ApplicationPage } from "./Pages/ApplicationPage/ApplicationPage";
 import { TripDetailsPage } from "./Pages/TripDetailsPage/TripDetailsPage";
+import { ListTripsPage } from "./Pages/ListTripsPage/ListTripsPage";
 
 
 export function Router() {
@@ -17,6 +18,7 @@ export function Router() {
                 <Route path="/login" element={<LoginPage/>}/>
                 <Route path="/admin" element={<AdmPage/>}/>
                 <Route path="/criar-viagem" element={<CreateTripPage/>}/>
+                <Route path="/lista-de-viagens" element={<ListTripsPage/>}/>
                 <Route path="/detalhes-da-viagem/:details" element={<TripDetailsPage/>}/>
             </Routes>
         </BrowserRouter>

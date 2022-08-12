@@ -16,7 +16,7 @@ export const ApplicationSection = styled.section `
             display: flex;
             flex-direction: column;
             align-items: center;
-            input {
+            input, select {
                 padding: 1vh;
                 font-size: 16px;
                 width: 25vw;
@@ -32,4 +32,9 @@ export const ApplicationSection = styled.section `
             }
         }
     }
+`
+
+export const Loading = styled.p `
+    text-align: center;
+    margin-top: 3vh;
 `

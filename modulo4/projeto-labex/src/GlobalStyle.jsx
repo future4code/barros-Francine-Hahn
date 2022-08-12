@@ -13,7 +13,7 @@ export const GeneralContainer = styled.main `
     background-color: #f2f2f2;
     height: 95vh;
     font-family: Arial, Helvetica, sans-serif;
-    button {
+    button, select {
         cursor: pointer;
     }
 `
