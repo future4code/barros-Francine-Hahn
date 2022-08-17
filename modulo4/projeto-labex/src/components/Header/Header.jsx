@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {HeaderSection} from './style'
 import {Link} from 'react-router-dom'
+import logo from '../../img/labex.png'
 
 
 
@@ -10,7 +11,7 @@ export function Header() {
 
     return (
         <HeaderSection>
-            <h1>labeX</h1>
+            <img src={logo} alt={'Logo da Labex'}/>
             <nav>
                 <Link to="/">Home</Link>
                 <Link to="/lista-de-viagens">Viagens</Link>

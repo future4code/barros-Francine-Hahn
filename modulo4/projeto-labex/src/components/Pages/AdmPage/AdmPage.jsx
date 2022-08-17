@@ -1,7 +1,8 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom'
+import { Footer } from "../../Footer/Footer";
 import {Header} from '../../Header/Header'
-import {AdminSection, ListTripsSection} from './style'
+import {BiggerContainer, AdminSection, ListTripsSection} from './style'
 
 
 
@@ -10,7 +11,7 @@ export function AdmPage() {
     const navigate = useNavigate()
 
     return (
-        <section>
+        <BiggerContainer>
             <Header/>
         
             <AdminSection>
@@ -27,6 +28,9 @@ export function AdmPage() {
                     </button>
                 </ListTripsSection>
             </AdminSection>
-        </section>
+            <div>
+                <Footer/>
+            </div>
+        </BiggerContainer>
     )
 }

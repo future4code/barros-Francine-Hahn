@@ -1,8 +1,16 @@
 import styled from "styled-components";
 
 
+export const BiggerContainer = styled.section `
+    background-color: black;
+    height: 100vh;
+    div {
+        margin-top: 45vh;
+    }
+`
+
+
 export const AdminSection = styled.section `
-    height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,6 +19,7 @@ export const AdminSection = styled.section `
         font-size: 24px;
         text-align: center;
         margin-top: 5vh;
+        color: white;
     }
     button {
         padding: 1vh 2vw;

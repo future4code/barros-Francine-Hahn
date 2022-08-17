@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 
 export const ApplicationSection = styled.section `
-    height: 90vh;
+    height: 100vh;
+    background-image: url(${props => props.background});
+    background-size: cover;
     section {
         display: block;
-        margin: 8vh auto;
+        margin: 10vh auto;
         width: 40vw;
         h1 {
-            font-size: 26px;
             margin: 5vh 0;
             text-align: center;
         }
@@ -16,21 +17,26 @@ export const ApplicationSection = styled.section `
             display: flex;
             flex-direction: column;
             align-items: center;
-            input, select {
+            input {
                 padding: 1vh;
                 font-size: 16px;
                 width: 25vw;
             }
-        }
-        aside {
-            display: flex;
-            justify-content: center;
-            gap: 5vw;
-            margin-top: 5vh;
+            select {
+                padding: 1vh;
+                font-size: 16px;
+                width: 26.1vw;
+            }
             button {
+                font-size: 16px;
                 padding: 1vh 2vw;
+                width: 26.1vw;
             }
         }
+    }
+    div {
+        margin-top: 23.5vh;
+        background-color: #42688f;
     }
 `
 

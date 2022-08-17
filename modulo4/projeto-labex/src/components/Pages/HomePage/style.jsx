@@ -1,31 +1,49 @@
 import styled from "styled-components";
 
 
+export const BiggerContainer = styled.section `
+    background-image: url(${props => props.background});
+    background-size: cover;
+    div {
+        background-image: linear-gradient(to right, #11365de6, #4279b4e6);
+    }
+`
+
+
 export const HomeSection = styled.section `
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-content: center;
+
     h2 {
-        font-size: 24px;
+        color: white;
     }
     section {
-        :nth-child(1) {
-            background: linear-gradient(to right, #d3afff, #c99cff);
-        }
-        :nth-child(2) {
-            background: linear-gradient(to right, #c394fc, #d2b1fb);
-        }
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 4vh;
         height: 80vh;
-        button {
-            padding: 1vh 2vw;
-            width: 25%;
-            font-size: 16px;
+    
+        section {
+            height: 20vh;
+            padding: 3vh;
+            display: flex;
+            flex-direction: column;
+            gap: 3.5vh;
+
+            button {
+                padding: 1.5vh 2.5vw;
+                font-size: 16px;
+                color: white;
+                border: 1px solid white;
+                background-color: transparent;
+                :hover {
+                    background-color: white;
+                    color: black;
+                }
+            }
         }
     }
 `

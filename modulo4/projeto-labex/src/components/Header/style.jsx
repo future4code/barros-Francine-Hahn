@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 
 export const HeaderSection = styled.header `
-    background-color: #1a0042;
+    background-color: transparent;
     height: 10vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    h1 {
-        color: white;
+    img{
+        width: 8%;
     }
     nav {
         display: flex;

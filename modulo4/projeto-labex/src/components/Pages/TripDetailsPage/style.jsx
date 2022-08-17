@@ -5,7 +5,6 @@ export const DetailsSection = styled.section `
     height: 90vh;
     section {
         h1 {
-            font-size: 24px;
             text-align: center;
             margin: 5vh 0;
         }

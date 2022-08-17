@@ -12,8 +12,16 @@ export const GlobalStyle = createGlobalStyle `
 export const GeneralContainer = styled.main `
     background-color: #f2f2f2;
     height: 95vh;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     button, select {
         cursor: pointer;
+        font-size: 16px;
     }
+    h1 {
+        font-size: 40px;
+    }
+    h2 {
+        font-size: 32px;
+    }
+
 `

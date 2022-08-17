@@ -1,25 +1,34 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {Header} from '../../Header/Header'
-import {HomeSection} from './style'
+import {Footer} from '../../Footer/Footer'
+import {BiggerContainer, HomeSection} from './style'
+import launch from '../../../img/launch.jpg'
 
 
 export function HomePage() {
     const navigate = useNavigate()
 
     return (
-        <section>
+        <BiggerContainer background={launch}>
             <Header/>
             <HomeSection>
                 <section>
-                    <h2>Acessar área privatida do site</h2>
-                    <button onClick={() => navigate('/login')}>Painel do admin</button>
+                    <section>
+                        <h2>Área privativa do site</h2>
+                        <button onClick={() => navigate('/login')}>Login</button>
+                    </section>
                 </section>
                 <section>
-                    <h2>Acessar a lista de viagens disponíveis</h2>
-                    <button onClick={() => navigate('/lista-de-viagens')}>Lista de viagens</button>
+                    <section>
+                        <h2>Viagens disponíveis</h2>
+                        <button onClick={() => navigate('/lista-de-viagens')}>Viagens</button>
+                    </section>
                 </section>
             </HomeSection>
-        </section>
+            <div>
+                <Footer/>
+            </div>
+        </BiggerContainer>
     )
 }
