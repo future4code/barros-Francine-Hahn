@@ -35,8 +35,8 @@ export const ApplicationSection = styled.section `
         }
     }
     div {
-        margin-top: 23.5vh;
-        background-color: #42688f;
+        margin-top: 22.5vh;
+        background-color: #688299f8;
     }
 `
 

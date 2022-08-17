@@ -11,8 +11,8 @@ export const BiggerContainer = styled.section `
         color: white;
     }
     div {
-        margin-top: 17.5vh;
-        background-color: #526b7d94;
+        margin-top: 16.6vh;
+        background-color: #869bade5;
     }
 `
 
