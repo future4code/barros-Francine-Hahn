@@ -11,14 +11,17 @@ export const BiggerContainer = styled.section `
     h1 {
         text-align: center;
         color: white;
-        @media screen and (min-width: 800px) {
-            margin: 4% 0 -1% 0;
+        @media screen and (min-width: 1000px) {
+            margin: 4% 0 2% 0;
         }
-        @media screen and (min-width: 500px) and (max-width: 800px) {
-            margin: 8% 0 7% 0;
+        @media screen and (min-width: 670px) and (max-width: 1000px) {
+            margin: 8% 0 10% 0;
+        }
+        @media screen and (min-width: 500px) and (max-width: 670px) {
+            margin: 8% 0 25% 0;
         }
         @media screen and (min-width: 320px) and (max-width: 500px) {
-            margin: 10% 0 7% 0;
+            margin: 10% 0 35% 0;
         }
     }
 `
@@ -27,25 +30,10 @@ export const SmallerContainer = styled.ul `
     list-style: none;
     margin: 5%;
     justify-content: center;
-    @media screen and (min-width: 1000px) {
-        display: grid;
-        grid-template-columns: repeat(4, 25%);
-        align-content: center;
-        row-gap: 8%;
-    }
-    @media screen and (min-width: 600px) and (max-width: 1000px) {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        align-content: center;
-        gap: 5%;
-    }
-    @media screen and (min-width: 320px) and (max-width: 600px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3vh;
-        padding-bottom: 5vh;
-    }
+    align-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    row-gap: 5%;
 `
 
 

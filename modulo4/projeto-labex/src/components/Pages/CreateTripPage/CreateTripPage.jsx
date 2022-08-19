@@ -29,11 +29,11 @@ export function CreateTripPage() {
             "durationInDays": form.durationInDays
         }
         
-        axios.post(`${urlBase}trips`, {
+        axios.post(`${urlBase}trips`, body, {
             headers: {
                 auth: localStorage.getItem("token")
             }
-        }, body).then(response => console.log(response.data)).catch(err => alert(`Houve um erro: ${err}`))
+        }).then(alert('Sua viagem foi criada com sucesso!')).catch(err => alert(`Houve um erro: ${err}`))
         
         clear()
     }

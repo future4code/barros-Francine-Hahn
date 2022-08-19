@@ -9,12 +9,13 @@ import { useRequestData } from "../../../hooks/useRequestData";
 import loading from '../../../img/loading.png'
 import iconDelete from '../../../img/iconDelete.png'
 import { AuthContext } from "../../../contexts/AuthContext";
+import axios from "axios";
 
 
 export function AdmPage() {
     useProtectedPage()
     const navigate = useNavigate()
-    const [data, isLoading, error] = useRequestData(`${urlBase}trips`)
+    const [data, isLoading, error, updateData, setUpdateData] = useRequestData(`${urlBase}trips`)
     const {setDetails} = useContext(AuthContext)
     
 
@@ -22,12 +23,23 @@ export function AdmPage() {
         setDetails(item.id)
         navigate(`/detalhes-da-viagem/${item.name}`)
     }
+
+    const handleRemoveTrip = (item) => {
+        axios.delete(`${urlBase}trips/${item.id}`, {
+            headers: {
+                auth: localStorage.getItem("token")
+            }
+        }).then(() => {
+            alert('Viagem excluída com sucesso!')
+            setUpdateData(!updateData)
+        }).catch(err => `Houve um erro: ${err}`)
+    }
     
     const trips = data && data.trips && data.trips.map(item => {
         return (
             <ButtonSection key={item.id}>
                 <button onClick={() => handleTripDetail(item)}>{item.name}</button>
-                <button>
+                <button onClick={() => handleRemoveTrip(item)}>
                     <img src={iconDelete} alt={'ícone de um lixo'}/>
                 </button>
             </ButtonSection>

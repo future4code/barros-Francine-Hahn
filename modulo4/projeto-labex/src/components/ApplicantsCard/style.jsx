@@ -2,21 +2,18 @@ import styled from "styled-components";
 
 
 export const BiggerContainer = styled.section `
-    display: flex;
-    justify-content: center;
-    gap: 6vw;
-    background-color: #6984a0;
-    width: 35%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    background-color: transparent;
+    width: 40%;
+    border: 1px solid white;
+    box-shadow: 4px 4px 4px #0000001c;
     margin: 1% auto;
-    padding: 2vw;
     ul {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         list-style: none;
         li {
             color: white;
-            margin: 1vh;
+            margin: 1vh 2vw;
         }
     }
     section {

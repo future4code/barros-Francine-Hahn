@@ -9,7 +9,7 @@ export function ApplicantsCard(props) {
             <ul>
                 <li>NOME: {props.name}</li>
                 <li>PROFISSÃO: {props.profession}</li>
-                <li>IDADE: {props.age}</li>
+                <li>IDADE: {props.age} anos</li>
                 <li>PAÍS: {props.country}</li>
                 <li>TEXTO DE CANDIDATURA: {props.text}</li>
             </ul>

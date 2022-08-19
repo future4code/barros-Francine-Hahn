@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const DetailsSection = styled.section `
-    background-image: url(${props => props.background});
+    background-image: linear-gradient(to right, #326d8d, #4689b3, #3199da);
     background-size: contain;
     min-height: 100vh;
     padding: 0 5vw;
@@ -29,8 +29,14 @@ export const DetailsSection = styled.section `
     button {
         display: flex;
         margin: 0 auto;
-        padding: 1vh 2vw;
-        border: none;
+        padding: 1.5vh 2vw;
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+        :hover {
+            background-color: white;
+            color: black;
+        }
     }
 `
 

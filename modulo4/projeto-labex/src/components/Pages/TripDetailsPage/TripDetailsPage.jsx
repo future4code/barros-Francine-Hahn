@@ -10,7 +10,6 @@ import {ApplicantsCard} from '../../ApplicantsCard/ApplicantsCard'
 import {DetailsSection, PendingCandidates, ApprovedCandidates, Loading} from './style'
 import { AuthContext } from "../../../contexts/AuthContext";
 import loading from '../../../img/loading.png'
-import launch3 from '../../../img/launch3.jpg'
 
 
 export function TripDetailsPage() {
@@ -22,7 +21,7 @@ export function TripDetailsPage() {
 
 
     //requisição dos detalhes da viagem
-    const [data, isLoading, error] = useRequestData(`${urlBase}trip/${details}`, {
+    const [data, isLoading, error, updateData, setUpdateData] = useRequestData(`${urlBase}trip/${details}`, {
         headers: {
             auth: localStorage.getItem("token")
         }
@@ -38,7 +37,10 @@ export function TripDetailsPage() {
             headers: {
                 auth: localStorage.getItem("token")
             }
-        }).then(alert('Candidato aprovado!')).catch((err) => alert(`Houve um erro: ${err}`))
+        }).then(() => {
+            alert('Candidato aprovado!')
+            setUpdateData(!updateData)
+        }).catch((err) => alert(`Houve um erro: ${err}`))
     }
     
 
@@ -51,11 +53,14 @@ export function TripDetailsPage() {
             headers: {
                 auth: localStorage.getItem("token")
             }
-        }).then(alert('Candidato reprovado!')).catch((err) => alert(`Houve um erro: ${err}`))
+        }).then(() => {
+            alert('Candidato reprovado!')
+            setUpdateData(!updateData)
+        }).catch((err) => alert(`Houve um erro: ${err}`))
     }
 
     return (
-        <DetailsSection background={launch3}>
+        <DetailsSection>
             <Header/>
             {isLoading && <Loading src={loading} alt={'Ícone de um círculo rodando'}/>}
             {!isLoading && data && (
@@ -66,7 +71,7 @@ export function TripDetailsPage() {
                         <h1>{tripName}</h1>
                         <p>DESCRIÇÃO: {data.trip.description}</p>
                         <p>PLANETA: {data.trip.planet}</p>
-                        <p>DURAÇÃO: {data.trip.durationInDays}</p>
+                        <p>DURAÇÃO: {data.trip.durationInDays} dias</p>
                         <p>DATA: {data.trip.date}</p>
                     </section>
 
