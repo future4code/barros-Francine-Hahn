@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import axios from 'axios'
 import { useForm } from "../../../hooks/useForm";
-import { urlBase } from "../../../hooks/urlBase";
+import { urlBase } from "../../../constants/urlBase";
 import {Header} from '../../Header/Header'
 import {ApplicationSection, Loading} from './style'
 import { useRequestData } from "../../../hooks/useRequestData";
 import space from '../../../img/space.jpg'
-import { Footer } from "../../Footer/Footer";
 
 
 
@@ -134,9 +133,6 @@ export function ApplicationPage() {
 
                 {isLoading && <Loading>Carregando...</Loading>}
             </section>
-            <div>
-                <Footer/>
-            </div>
         </ApplicationSection>
     )
 }

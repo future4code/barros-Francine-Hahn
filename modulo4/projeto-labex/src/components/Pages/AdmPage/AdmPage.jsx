@@ -1,36 +1,52 @@
-import React from "react";
+import React, {useContext} from "react";
 import {useNavigate} from 'react-router-dom'
-import { Footer } from "../../Footer/Footer";
 import {Header} from '../../Header/Header'
-import {BiggerContainer, AdminSection, ListTripsSection} from './style'
-
+import {BiggerContainer, AdminSection, ListTripsSection, ButtonSection, Loading} from './style'
+import launch3 from '../../../img/launch3.jpg'
+import { useProtectedPage } from "../../../hooks/useProtectedPage";
+import { urlBase } from "../../../constants/urlBase";
+import { useRequestData } from "../../../hooks/useRequestData";
+import loading from '../../../img/loading.png'
+import iconDelete from '../../../img/iconDelete.png'
+import { AuthContext } from "../../../contexts/AuthContext";
 
 
 export function AdmPage() {
-
+    useProtectedPage()
     const navigate = useNavigate()
+    const [data, isLoading, error] = useRequestData(`${urlBase}trips`)
+    const {setDetails} = useContext(AuthContext)
+    
+
+    const handleTripDetail = (item) => {
+        setDetails(item.id)
+        navigate(`/detalhes-da-viagem/${item.name}`)
+    }
+    
+    const trips = data && data.trips && data.trips.map(item => {
+        return (
+            <ButtonSection key={item.id}>
+                <button onClick={() => handleTripDetail(item)}>{item.name}</button>
+                <button>
+                    <img src={iconDelete} alt={'ícone de um lixo'}/>
+                </button>
+            </ButtonSection>
+        )
+    })
+
 
     return (
-        <BiggerContainer>
+        <BiggerContainer background={launch3}>
             <Header/>
-        
             <AdminSection>
-                <h1>Adm Page</h1>
+                <h1>Bem vindo(a) ao painel administrativo</h1>
                 <button onClick={() => navigate("/criar-viagem")}>Criar viagem</button>
                 <ListTripsSection>
-                    <button onClick={() => navigate("/detalhes-da-viagem/viagem1")}>
-                        Viagem 1
-                        <button>Remover</button>
-                    </button>
-                    <button onClick={() => navigate("/detalhes-da-viagem/viagem2")}>
-                        Viagem 2
-                        <button>Remover</button>
-                    </button>
+                    {isLoading && <Loading src={loading} alt={'Ícone de um círculo rodando'}/>}
+                    {!isLoading && data && trips}
+                    {!isLoading && !data && error}
                 </ListTripsSection>
             </AdminSection>
-            <div>
-                <Footer/>
-            </div>
         </BiggerContainer>
     )
 }

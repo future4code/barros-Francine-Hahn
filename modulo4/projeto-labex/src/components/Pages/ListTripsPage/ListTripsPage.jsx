@@ -1,10 +1,9 @@
 import React from "react";
-import { urlBase } from "../../../hooks/urlBase";
+import { urlBase } from "../../../constants/urlBase";
 import { Header } from "../../Header/Header";
 import { BiggerContainer, SmallerContainer, ListTrips, Loading } from "./style";
 import {useRequestData} from '../../../hooks/useRequestData'
 import launch2 from '../../../img/launch2.jpg'
-import { Footer } from "../../Footer/Footer";
 import loading from '../../../img/loading.png'
 
 
@@ -35,10 +34,6 @@ export function ListTripsPage() {
             </SmallerContainer>
 
             {!isLoading && !data && error}
-            
-            <div>
-                <Footer/>
-            </div>
         </BiggerContainer>
     )
 }

@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 
 export const CreateTripSection = styled.section `
-    height: 100vh;
     background-image: url(${props => props.background});
+    height: 100vh;
     
     @keyframes starsAnimation {
         from {background-size: 80%;}
@@ -13,29 +13,39 @@ export const CreateTripSection = styled.section `
 
     h1 {
         text-align: center;
-        margin: 15vh 0 2vh 0;
+        margin: 6% 0 2% 0;
         color: white;
     }
     button {
         display: block;
-        margin: 0 auto 5vh auto;
-        padding: 1vh 2vw;
-    }
-    div {
-        margin-top: 17vh;
-        background-color: black;
+        margin: 0 auto 5% auto;
+        padding: .5% 2%;
     }
     form {
         display: flex;
         flex-direction: column;
         margin: 0 auto;
-        width: 25%;
-        input {
-            font-size: 16px;
-            padding: 1vh .5vw;
+        @media screen and (min-width: 1300px) {
+            width: 30%;
+        }
+        @media screen and (min-width: 1000px) and (max-width: 1300px) {
+            width: 35%;
+        }
+        @media screen and (min-width: 800px) and (max-width: 1000px) {
+            width: 50%;
+        }
+        @media screen and (min-width: 600px) and (max-width: 800px) {
+            width: 70%;
+        }
+        @media screen and (min-width: 320px) and (max-width: 600px) {
+            width: 90%;
+        }
+        input, select {
+            padding: 1.5% .5%;
         }
         button {
             width: 100%;
+            padding: 2% 0;
         }
     }
 `

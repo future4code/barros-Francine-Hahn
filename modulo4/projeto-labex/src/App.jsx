@@ -1,6 +1,7 @@
 import React from 'react'
 import {Router} from './components/Router'
 import {GlobalStyle, GeneralContainer} from './GlobalStyle'
+import { AuthContextProvider } from './contexts/AuthContext'
 
 
 function App() {
@@ -8,7 +9,9 @@ function App() {
   return (
     <GeneralContainer>
       <GlobalStyle/>
-      <Router/>
+      <AuthContextProvider>
+        <Router/>
+      </AuthContextProvider>
     </GeneralContainer>
   )
 }

@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, {useContext} from "react";
 import {HeaderSection} from './style'
 import {Link} from 'react-router-dom'
 import logo from '../../img/labex.png'
+import { AuthContext } from "../../contexts/AuthContext";
 
 
 
 export function Header() {
-    
-    const [login, setLogin] = useState(false)
+    const {login, setLogin} = useContext(AuthContext)
+
+    const handleLogout = () => {
+        setLogin(false)
+        localStorage.clear()
+    }
 
     return (
         <HeaderSection>
@@ -16,8 +21,9 @@ export function Header() {
                 <Link to="/">Home</Link>
                 <Link to="/lista-de-viagens">Viagens</Link>
                 <Link to="/agendar-viagem">Inscrever-se</Link>
-                {login? <Link to="/" onClick={() => setLogin(false)}>Logout</Link> :
-                <Link to="/login" onClick={() => setLogin(true)}>Login</Link>}
+                {login && <Link to="/admin">Perfil</Link>}
+                {login? <Link to="/login" onClick={handleLogout}>Logout</Link> :
+                <Link to="/login">Login</Link>}
             </nav>
         </HeaderSection>
     )

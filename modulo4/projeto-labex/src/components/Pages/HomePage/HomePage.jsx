@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {Header} from '../../Header/Header'
-import {Footer} from '../../Footer/Footer'
 import {BiggerContainer, HomeSection} from './style'
 import launch from '../../../img/launch.jpg'
 
@@ -14,21 +13,14 @@ export function HomePage() {
             <Header/>
             <HomeSection>
                 <section>
-                    <section>
-                        <h2>Área privativa do site</h2>
-                        <button onClick={() => navigate('/login')}>Login</button>
-                    </section>
+                    <h2>FAZER LOGIN</h2>
+                    <button onClick={() => navigate('/login')}>Login</button>
                 </section>
                 <section>
-                    <section>
-                        <h2>Viagens disponíveis</h2>
-                        <button onClick={() => navigate('/lista-de-viagens')}>Viagens</button>
-                    </section>
+                    <h2>LISTA DE VIAGENS</h2>
+                    <button onClick={() => navigate('/lista-de-viagens')}>Viagens</button>
                 </section>
             </HomeSection>
-            <div>
-                <Footer/>
-            </div>
         </BiggerContainer>
     )
 }

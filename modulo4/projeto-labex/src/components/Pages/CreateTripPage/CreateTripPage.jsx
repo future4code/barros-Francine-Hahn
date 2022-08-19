@@ -1,13 +1,17 @@
 import React from "react";
+import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
-import { Footer } from "../../Footer/Footer";
 import {Header} from '../../Header/Header'
 import {CreateTripSection} from './style'
 import { useForm } from "../../../hooks/useForm";
 import stars from '../../../img/stars.png'
+import { useProtectedPage } from "../../../hooks/useProtectedPage";
+import { urlBase } from "../../../constants/urlBase";
 
 
 export function CreateTripPage() {
+    useProtectedPage()
+    
     const [form, onChange, clear] = useForm({id: "", name: "", planet: "", 	date: "", description: "", durationInDays: ""})
     const navigate = useNavigate()
     const timeElapsed = Date.now();
@@ -16,7 +20,22 @@ export function CreateTripPage() {
 
     const handleCreateTrip = (e) => {
         e.preventDefault()
-        alert('Sua viagem foi criada com sucesso!')
+        
+        const body = {
+            "name": form.name,
+            "planet": form.planet,
+            "date": form.date,
+            "description": form.description,
+            "durationInDays": form.durationInDays
+        }
+        
+        axios.post(`${urlBase}trips`, {
+            headers: {
+                auth: localStorage.getItem("token")
+            }
+        }, body).then(response => console.log(response.data)).catch(err => alert(`Houve um erro: ${err}`))
+        
+        clear()
     }
 
 
@@ -75,9 +94,6 @@ export function CreateTripPage() {
                 <button>Criar</button>
             </form>
             <button onClick={() => navigate(-1)}>Voltar</button>
-            <div>
-                <Footer/>
-            </div>
         </CreateTripSection>
     )
 }

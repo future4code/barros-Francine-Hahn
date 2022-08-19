@@ -1,17 +1,18 @@
-import React from "react"
+import React, {useContext} from "react"
 import axios from "axios"
 import { useForm } from "../../../hooks/useForm"
-import {urlBase} from '../../../hooks/urlBase'
+import {urlBase} from '../../../constants/urlBase'
 import {Header} from '../../Header/Header'
 import {useNavigate} from 'react-router-dom'
 import {LoginSection} from './style'
 import stars from '../../../img/stars.png'
-import { Footer } from "../../Footer/Footer"
 import user from '../../../img/user.png'
+import { AuthContext } from "../../../contexts/AuthContext"
 
 
 
 export function LoginPage() {
+    const {setLogin} = useContext(AuthContext)
     const [form, onChange, clear] = useForm({email: "", password: ""})    
     const navigate = useNavigate()
 
@@ -19,9 +20,11 @@ export function LoginPage() {
     const handleLogin = (e) => {
         e.preventDefault()
     
-        axios.post(`${urlBase}login`, form).then(
+        axios.post(`${urlBase}login`, form).then(response => {
+            localStorage.setItem("token", response.data.token)
+            setLogin(true)
             navigate("/admin")
-        ).catch(err => alert(err))
+        }).catch(err => alert(`Houve um erro: ${err}`))
         
         clear()
     }
@@ -53,10 +56,6 @@ export function LoginPage() {
                     <button>Entrar</button>
                 </form>
             </section>
-
-            <div>
-                <Footer/>
-            </div>
         </LoginSection>
     )
 }
