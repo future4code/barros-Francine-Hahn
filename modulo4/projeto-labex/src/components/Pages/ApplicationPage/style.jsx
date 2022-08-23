@@ -8,12 +8,12 @@ export const ApplicationSection = styled.section `
 
     section {
         display: block;
-        margin: 6% auto;
+        margin: 0 auto;
         width: 100%;
         h1 {
             text-align: center;
             @media screen and (min-width: 1200px) {
-                margin: 1% 0;
+                margin: 3% 0 2% 0;
             }
             @media screen and (min-width: 1000px) and (max-width: 1200px) {
                 margin: 10% 0 2% 0;
@@ -22,51 +22,58 @@ export const ApplicationSection = styled.section `
                 margin: 15% 0 2% 0;
             }
             @media screen and (min-width: 320px) and (max-width: 800px) {
-                margin: 20% 0 2% 0;
+                margin: 10% 0 5% 0;
             }
         }
         form {
             display: flex;
             flex-direction: column;
             align-items: center;
-            input {
-                padding: .5%;
-                @media screen and (min-width: 1400px) {
-                    width: 38%;
-                }
-                @media screen and (min-width: 1000px) and (max-width: 1400px) {
-                    width: 40%;
-                }
-                @media screen and (min-width: 750px) and (max-width: 1000px) {
-                    width: 67.5%;
-                }
-                @media screen and (min-width: 320px) and (max-width: 750px) {
-                    width: 87.5%;
-                }
+            margin: 0 auto;
+            @media screen and (min-width: 1200px) {
+                width: 35vw;
+            }
+            @media screen and (min-width: 900px) and (max-width: 1200px) {
+                width: 50vw;
+            }
+            @media screen and (min-width: 500px) and (max-width: 900px) {
+                width: 70vw;
+            }
+            @media screen and (min-width: 320px) and (max-width: 500px) {
+                width: 80vw;
+            }
+            input, textarea {
+                padding: 2%;
+                border: 1px solid lightgrey;
+                width: 95.5%;
+                font-family: 'roboto';
+                font-size: 16px;
+            }
+            select {
+                color: grey;
             }
             select, button {
-                padding: .5% 1%;
-                @media screen and (min-width: 1400px) {
-                    width: 39.4%;
-                }
-                @media screen and (min-width: 1000px) and (max-width: 1400px) {
-                    width: 41.3%;
-                }
-                @media screen and (min-width: 750px) and (max-width: 1000px) {
-                    width: 69%;
-                }
-                @media screen and (min-width: 400px) and (max-width: 750px) {
-                    width: 89%;
-                }
-                @media screen and (min-width: 320px) and (max-width: 400px) {
-                    width: 90%;
+                padding: 2%;
+                border: 1px solid lightgrey;
+                width: 100%;
+            }
+            button {
+                :active {
+                    background-color: #ff6a00;
+                    color: white;
                 }
             }
         }
     }
 `
 
-export const Loading = styled.p `
-    text-align: center;
-    margin-top: 3vh;
+export const Loading = styled.img `
+    width: 5%;
+    display: block;
+    margin: 19.1vh auto;
+    @keyframes rotate {
+        from {transform: rotate(0)}
+        to {transform: rotate(360deg)}
+    }
+    animation: rotate 1s infinite;
 `

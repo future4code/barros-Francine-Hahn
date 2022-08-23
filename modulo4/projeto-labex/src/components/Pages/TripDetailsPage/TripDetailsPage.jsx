@@ -1,15 +1,15 @@
 import React, {useContext} from "react"
 import axios from 'axios'
-import { useParams } from "react-router-dom";
-import {useNavigate} from 'react-router-dom'
+import { useParams, useNavigate } from "react-router-dom"
 import { useProtectedPage } from "../../../hooks/useProtectedPage";
 import { useRequestData } from "../../../hooks/useRequestData";
 import { urlBase } from "../../../constants/urlBase";
 import {Header} from '../../Header/Header'
 import {ApplicantsCard} from '../../ApplicantsCard/ApplicantsCard'
-import {DetailsSection, PendingCandidates, ApprovedCandidates, Loading} from './style'
+import {DetailsSection, PendingCandidates, ApprovedCandidates, Loading, GoBack} from './style'
 import { AuthContext } from "../../../contexts/AuthContext";
 import loading from '../../../img/loading.png'
+import rocket from '../../../img/rocket.png'
 
 
 export function TripDetailsPage() {
@@ -20,7 +20,7 @@ export function TripDetailsPage() {
     const navigate = useNavigate()
 
 
-    //requisição dos detalhes da viagem
+    //Request for travel details
     const [data, isLoading, error, updateData, setUpdateData] = useRequestData(`${urlBase}trip/${details}`, {
         headers: {
             auth: localStorage.getItem("token")
@@ -28,7 +28,7 @@ export function TripDetailsPage() {
     })
 
 
-    //Aprovar candidato
+    //Candidate approval
     const handleApprove = (candidateId) => {
         const body = {
             approve: true
@@ -44,7 +44,7 @@ export function TripDetailsPage() {
     }
     
 
-    //Reprovar candidato
+    //Candidate disapproval
     const handleDisapprove = (candidateId) => {
         const body = {
             approve: false
@@ -66,7 +66,7 @@ export function TripDetailsPage() {
             {!isLoading && data && (
             <>
                 <section>
-                    <button onClick={() => navigate(-1)}>Voltar</button>
+                    <GoBack onClick={() => navigate(-1)}>Voltar</GoBack>
                     <section>
                         <h1>{tripName}</h1>
                         <p>DESCRIÇÃO: {data.trip.description}</p>
@@ -92,14 +92,20 @@ export function TripDetailsPage() {
                                 />
                             )
                         })}
+                        {data.trip.candidates.length === 0 && <p>Não há candidatos para essa viagem.</p>}
                     </PendingCandidates>
                     
                     <ApprovedCandidates>
-                        <h2>Candidatos aprovados</h2>
+                        <div>
+                            <h2>Candidatos aprovados</h2>
+                            <img src={rocket} alt={'Ícone de um foguete'}/>
+                        </div>
+                        
                         <ul>
                             {data.trip.approved && data.trip.approved.map(item => {
                                 return <li key={item.id}>{item.name}</li>
                             })}
+                            {data.trip.approved.length === 0 && <p>Não há candidatos aprovados.</p>}
                         </ul>
                     </ApprovedCandidates>
                 </section>

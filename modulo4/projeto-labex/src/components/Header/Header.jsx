@@ -10,21 +10,23 @@ export function Header() {
     const {login, setLogin} = useContext(AuthContext)
     const [showMenu, setShowMenu] = useState(false)
 
+    //Logout button
     const handleLogout = () => {
         setLogin(false)
         localStorage.clear()
     }
 
+    //Menu mobile - open menu
     const handleOpenMenu = () => {
         setShowMenu(true)
-        console.log(showMenu)
     }
 
+    //Menu mobile - close menu
     const handleCloseMenu = () => {
         setShowMenu(false)
-        console.log(showMenu)
     }
 
+    //Navigation
     const nav = () => {
         return (
             <>
@@ -52,7 +54,9 @@ export function Header() {
                 </div>
                 {showMenu && (
                     <section>
-                        <button onClick={handleCloseMenu}>x</button>
+                        <div>
+                            <button onClick={handleCloseMenu}>X</button>
+                        </div>
                         <nav>{nav()}</nav>
                     </section>
                 )}

@@ -5,6 +5,10 @@ import { AuthContextProvider } from './contexts/AuthContext'
 
 
 function App() {
+  //Logout when user closes the window
+  window.onbeforeunload = function(){
+    localStorage.clear()
+  }
 
   return (
     <GeneralContainer>

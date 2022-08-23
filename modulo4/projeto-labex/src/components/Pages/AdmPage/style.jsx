@@ -4,7 +4,8 @@ import styled from "styled-components";
 export const BiggerContainer = styled.section `
     background-image: url(${props => props.background});
     background-size: cover;
-    height: 100vh;
+    height: 96vh;
+    padding-bottom: 4vh;
 `
 
 
@@ -15,8 +16,16 @@ export const AdminSection = styled.section `
     gap: 2vh;
     h1 {
         text-align: center;
-        margin: 11vh 1vw 2vh 1vw;
         color: white;
+        @media screen and (min-width: 1000px) {
+            margin: 5vh 1vw 2vh 1vw;
+        }
+        @media screen and (min-width: 650px) and (max-width: 1000px) {
+            margin: 11vh 1vw 2vh 1vw;
+        }
+        @media screen and (min-width: 320px) and (max-width: 650px) {
+            margin: 8vh 1vw 2vh 1vw;
+        }
     }
     button {
         padding: 1.5vh 2vw;
@@ -33,9 +42,23 @@ export const AdminSection = styled.section `
 
 
 export const ListTripsSection = styled.section `
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 5vh;
+    padding-right: 1vw;
+    overflow-y: scroll;
+    ::-webkit-scrollbar-track {
+        background-color: white;
+    }
+    ::-webkit-scrollbar {
+        width: .4vw;
+        background: white;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: lightgrey;
+    }
 `
 
 export const ButtonSection = styled.section `
@@ -81,13 +104,13 @@ export const ButtonSection = styled.section `
                 width: 4vw;
             }
             @media screen and (min-width: 720px) and (max-width: 1024px) {
-                width: 4.5vw;
+                width: 5vw;
             }
             @media screen and (min-width: 560px) and (max-width: 720px) {
-                width: 5.5vw;
+                width: 7vw;
             }
             @media screen and (min-width: 320px) and (max-width: 560px) {
-                width: 7vw;
+                width: 9vw;
             }
         }
         img {
@@ -100,7 +123,7 @@ export const ButtonSection = styled.section `
 export const Loading = styled.img `
     width: 5%;
     display: block;
-    margin: 19.1vh auto;
+    margin: 12vh auto;
     @keyframes rotate {
         from {transform: rotate(0)}
         to {transform: rotate(360deg)}

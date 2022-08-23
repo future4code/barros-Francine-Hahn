@@ -7,21 +7,21 @@ import {ApplicationSection, Loading} from './style'
 import { useRequestData } from "../../../hooks/useRequestData";
 import space from '../../../img/space.jpg'
 import { countries } from "../../../constants/countries";
+import loading from '../../../img/loading.png'
 
 
 
 export function ApplicationPage() {
     const [isLoading, setIsLoading] = useState(false)
-
     const [form, onChange, clear] = useForm({name: "", age: "", text: "", profession: "", country: "", tripId: ""})
-    const [data, loading, error] = useRequestData(`${urlBase}trips`)
+    const [data] = useRequestData(`${urlBase}trips`)
 
     
-    //Quando usuário envia o formulário
+    //Submitting the form
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(form)
-
+        setIsLoading(true)
+        
         const body = {
             name: form.name,
             age: form.age,
@@ -29,8 +29,6 @@ export function ApplicationPage() {
             profession: form.profession,
             country: form.country
         }
-
-        setIsLoading(true)
 
         axios.post(`${urlBase}trips/${form.tripId}/apply`, body).then(() => {
             setIsLoading(false)
@@ -75,10 +73,10 @@ export function ApplicationPage() {
                         onChange={onChange}
                         min={18}
                     />
-                    <input
+                    <textarea
                         required
-                        type="text"
                         placeholder="Por que você é um(a) bom/boa candidato(a)?"
+                        rows={5}
                         name="text"
                         value={form.text}
                         onChange={onChange}
@@ -103,8 +101,8 @@ export function ApplicationPage() {
 
                     <button>Enviar</button>
                 </form>
-
-                {isLoading && <Loading>Carregando...</Loading>}
+                
+                {isLoading && <Loading src={loading} alt={'Ícone de um círculo rodando'}/>}
             </section>
         </ApplicationSection>
     )

@@ -1,30 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 import {Header} from '../../Header/Header'
-import {CreateTripSection} from './style'
+import {CreateTripSection, GoBack, Loading} from './style'
 import { useForm } from "../../../hooks/useForm";
-import stars from '../../../img/stars.png'
+import launch3 from '../../../img/launch3.jpg'
 import { useProtectedPage } from "../../../hooks/useProtectedPage";
 import { urlBase } from "../../../constants/urlBase";
+import loading from '../../../img/loading.png'
 
 
 export function CreateTripPage() {
     useProtectedPage()
-    
+    const [isLoading, setIsLoading] = useState(false)
     const [form, onChange, clear] = useForm({id: "", name: "", planet: "", 	date: "", description: "", durationInDays: ""})
     const navigate = useNavigate()
-    const timeElapsed = Date.now();
-    const today = new Date(timeElapsed);
-
-
+    
+    //Getting the updated date
+    const getDate = () => {
+        const timeElapsed = Date.now()
+        const today = new Date(timeElapsed).toLocaleDateString()
+        const date = today.split("/")
+        const day = parseInt(date[0]) + 1
+        const month = date[1]
+        const year = date[2]
+        return `${year}-${month}-${day}`
+    }
+    
+    
+    //When the user clicks on the button to create a trip
     const handleCreateTrip = (e) => {
         e.preventDefault()
+        setIsLoading(true)
+
+        const date = form.date.split("-")
+        const formattedDate = `${date[2]}/${date[1]}/${date[0]}`
         
         const body = {
             "name": form.name,
             "planet": form.planet,
-            "date": form.date,
+            "date": formattedDate,
             "description": form.description,
             "durationInDays": form.durationInDays
         }
@@ -33,14 +48,20 @@ export function CreateTripPage() {
             headers: {
                 auth: localStorage.getItem("token")
             }
-        }).then(alert('Sua viagem foi criada com sucesso!')).catch(err => alert(`Houve um erro: ${err}`))
+        }).then(() => {
+            setIsLoading(false)
+            alert('Sua viagem foi criada com sucesso!')
+        }).catch(err => {
+            setIsLoading(false)
+            alert(`Houve um erro: ${err}`)
+        })
         
         clear()
     }
 
 
     return (
-        <CreateTripSection background={stars}>
+        <CreateTripSection background={launch3}>
             <Header/>
             <h1>Criar Viagem</h1>
             <form onSubmit={handleCreateTrip}>
@@ -71,11 +92,11 @@ export function CreateTripPage() {
                     name="date"
                     value={form.date}
                     onChange={onChange}
-                    min={today.toLocaleDateString()}
+                    min={getDate()}
                 />
-                <input
+                <textarea
                     required
-                    type="text"
+                    rows={5}
                     placeholder="Descrição"
                     name="description"
                     value={form.description}
@@ -91,9 +112,11 @@ export function CreateTripPage() {
                     onChange={onChange}
                     min={50}
                 />
-                <button>Criar</button>
+                <input type="submit" value={'Criar'}/>
             </form>
-            <button onClick={() => navigate(-1)}>Voltar</button>
+
+            {isLoading && <Loading src={loading} alt={'Ícone de um círculo rodando'}/>}
+            <GoBack onClick={() => navigate(-1)}>Voltar</GoBack>
         </CreateTripSection>
     )
 }

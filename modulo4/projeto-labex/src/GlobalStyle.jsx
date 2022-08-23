@@ -10,18 +10,19 @@ export const GlobalStyle = createGlobalStyle `
 `
 
 export const GeneralContainer = styled.main `
-    background-color: #f2f2f2;
-    min-height: 100vh;
     font-family: 'Roboto', sans-serif;
-    overflow-y: visible;
+    min-height: 100vh;
     button, select {
         cursor: pointer;
         font-size: 16px;
+        font-family: 'Roboto', sans-serif;
     }
-    p, input, li {
+    p, input, li, textarea {
         font-size: 16px;
+        font-family: 'Roboto', sans-serif;
     }
     h1 {
+        font-family: 'Roboto', sans-serif;
         @media screen and (min-width: 1200px) {
             font-size: 40px;
         }
@@ -39,6 +40,7 @@ export const GeneralContainer = styled.main `
         }
     }
     h2 {
+        font-family: 'Roboto', sans-serif;
         @media screen and (min-width: 1200px) {
             font-size: 32px;
         }

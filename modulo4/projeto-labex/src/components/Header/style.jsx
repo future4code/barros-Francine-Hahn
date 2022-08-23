@@ -4,9 +4,9 @@ import styled from "styled-components";
 export const HeaderSection = styled.header `
     background-color: transparent;
     height: 10vh;
-    padding: .5% 0;
+    padding: 1% 5%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     img{
         @media screen and (min-width: 1200px) {
@@ -22,7 +22,7 @@ export const HeaderSection = styled.header `
             width: 18%;
         }
         @media screen and (min-width: 320px) and (max-width: 500px) {
-            width: 25%;
+            width: 28%;
         }
     }
     nav {
@@ -62,17 +62,30 @@ export const MenuMobile = styled.div `
         section {
             position: absolute;
             left: 0;
+            top: 0;
             width: 100vw;
             height: 100vh;
             background-color: black;
             padding-top: 5vh;
             nav {
                 text-align: center;
+                margin-top: 5vh;
                 display: flex;
                 flex-direction: column;
+                gap: 3vh;
                 a {
                     color: white;
                     text-decoration: none;
+                    font-size: 1.4em;
+                }
+            }
+            div {
+                display: flex;
+                justify-content: flex-end;
+                margin-right: 11vw;
+                margin-top: -1.2vh;
+                button {
+                    padding: 1vh 2.5vw;
                 }
             }
         }

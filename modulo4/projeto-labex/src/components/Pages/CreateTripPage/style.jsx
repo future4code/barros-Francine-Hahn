@@ -3,36 +3,30 @@ import styled from "styled-components";
 
 export const CreateTripSection = styled.section `
     background-image: url(${props => props.background});
+    background-size: cover;
     height: 100vh;
-    
-    @keyframes starsAnimation {
-        from {background-size: 80%;}
-        to {background-size: 90%;}
-    }
-    animation: starsAnimation 15s ease infinite;
-
     h1 {
         text-align: center;
-        margin: 6% 0 2% 0;
         color: white;
-    }
-    button {
-        display: block;
-        margin: 0 auto 5% auto;
-        padding: .5% 2%;
+        @media screen and (min-width: 1200px) {
+            margin: 4% 0 2% 0;
+        }
+        @media screen and (min-width: 550px) and (max-width: 1200px) {
+            margin: 8% 0 3% 0;
+        }
+        @media screen and (min-width: 320px) and (max-width: 550px) {
+            margin: 8% 0 4% 0;
+        }
     }
     form {
         display: flex;
         flex-direction: column;
         margin: 0 auto;
-        @media screen and (min-width: 1300px) {
-            width: 30%;
-        }
-        @media screen and (min-width: 1000px) and (max-width: 1300px) {
+        @media screen and (min-width: 1000px) {
             width: 35%;
         }
         @media screen and (min-width: 800px) and (max-width: 1000px) {
-            width: 50%;
+            width: 55%;
         }
         @media screen and (min-width: 600px) and (max-width: 800px) {
             width: 70%;
@@ -40,12 +34,44 @@ export const CreateTripSection = styled.section `
         @media screen and (min-width: 320px) and (max-width: 600px) {
             width: 90%;
         }
-        input, select {
+        input, select, textarea {
             padding: 1.5% .5%;
+            border: 1px solid lightgrey;
         }
-        button {
-            width: 100%;
-            padding: 2% 0;
+        input {
+            :nth-child(6) {
+                cursor: pointer;
+                :active {
+                    background-color: #ff6a00;
+                    color: white;
+                    border: 1px solid #ff6a00;
+                }
+            }
         }
     }
+`
+
+
+export const GoBack = styled.button `
+    display: block;
+    margin: 4vh auto 5% auto;
+    padding: .5% 2%;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    :hover {
+        background-color: white;
+        color: black;
+    }
+`
+
+export const Loading = styled.img `
+    width: 5%;
+    display: block;
+    margin: 5vh auto;
+    @keyframes rotate {
+        from {transform: rotate(0)}
+        to {transform: rotate(360deg)}
+    }
+    animation: rotate 1s infinite;
 `
