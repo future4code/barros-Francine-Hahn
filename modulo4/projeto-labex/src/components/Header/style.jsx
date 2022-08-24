@@ -45,7 +45,7 @@ export const HeaderSection = styled.header `
 
 export const MenuMobile = styled.div `
     @media screen and (min-width: 640px) {
-            display: none;
+        display: none;
     }
     @media screen and (min-width: 320px) and (max-width: 640px) {
         width: 40px;

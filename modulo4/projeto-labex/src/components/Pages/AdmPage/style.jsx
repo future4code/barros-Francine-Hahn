@@ -17,15 +17,7 @@ export const AdminSection = styled.section `
     h1 {
         text-align: center;
         color: white;
-        @media screen and (min-width: 1000px) {
-            margin: 5vh 1vw 2vh 1vw;
-        }
-        @media screen and (min-width: 650px) and (max-width: 1000px) {
-            margin: 11vh 1vw 2vh 1vw;
-        }
-        @media screen and (min-width: 320px) and (max-width: 650px) {
-            margin: 8vh 1vw 2vh 1vw;
-        }
+        margin: 5vh 1vw 2vh 1vw;
     }
     button {
         padding: 1.5vh 2vw;
@@ -121,7 +113,6 @@ export const ButtonSection = styled.section `
 
 
 export const Loading = styled.img `
-    width: 5%;
     display: block;
     margin: 12vh auto;
     @keyframes rotate {
@@ -129,4 +120,10 @@ export const Loading = styled.img `
         to {transform: rotate(360deg)}
     }
     animation: rotate 1s infinite;
+    @media screen and (min-width: 1000px) {
+        width: 5%;
+    }
+    @media screen and (min-width: 320px) and (max-width: 1000px) {
+        width: 15%;
+    }
 `

@@ -16,15 +16,6 @@ export function Header() {
         localStorage.clear()
     }
 
-    //Menu mobile - open menu
-    const handleOpenMenu = () => {
-        setShowMenu(true)
-    }
-
-    //Menu mobile - close menu
-    const handleCloseMenu = () => {
-        setShowMenu(false)
-    }
 
     //Navigation
     const nav = () => {
@@ -47,7 +38,7 @@ export function Header() {
                 {nav()}
             </nav>
             <MenuMobile>
-                <div onClick={handleOpenMenu}>
+                <div onClick={() => setShowMenu(true)}>
                     <div></div>
                     <div></div>
                     <div></div>
@@ -55,7 +46,7 @@ export function Header() {
                 {showMenu && (
                     <section>
                         <div>
-                            <button onClick={handleCloseMenu}>X</button>
+                            <button onClick={() => setShowMenu(false)}>X</button>
                         </div>
                         <nav>{nav()}</nav>
                     </section>

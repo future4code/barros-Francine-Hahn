@@ -4,7 +4,7 @@ import { useForm } from "../../../hooks/useForm"
 import {urlBase} from '../../../constants/urlBase'
 import {Header} from '../../Header/Header'
 import {useNavigate} from 'react-router-dom'
-import {LoginSection, Loading} from './style'
+import {LoginSection, FormSection, Loading} from './style'
 import stars from '../../../img/stars.png'
 import user from '../../../img/user.png'
 import { AuthContext } from "../../../contexts/AuthContext"
@@ -37,9 +37,9 @@ export function LoginPage() {
 
     return (
         <LoginSection background={stars}>
-            <Header />
+            <Header/>
             {!isLoading && (
-                <section>
+                <FormSection>
                     <img src={user} alt={'Imagem de um usuário'}/>
                     <form onSubmit={handleLogin}>
                         <input
@@ -61,7 +61,7 @@ export function LoginPage() {
                         />
                         <button>Entrar</button>
                     </form>
-                </section>
+                </FormSection>
             )}
             
             {isLoading && <Loading src={loading} alt={'Ícone de um círculo rodando'}/>}

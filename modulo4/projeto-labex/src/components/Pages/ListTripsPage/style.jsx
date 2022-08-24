@@ -12,19 +12,19 @@ export const Container = styled.section `
         text-align: center;
         color: white;
         @media screen and (min-width: 1000px) {
-            margin: 2.5% 0 7% 0;
+            margin-top: 2.5%;
         }
         @media screen and (min-width: 750px) and (max-width: 1000px) {
-            margin: 8% 0 12% 0;
+            margin-top: 5%;
         }
         @media screen and (min-width: 670px) and (max-width: 750px) {
-            margin: 8% 0 20% 0;
+            margin-top: 8%;
         }
         @media screen and (min-width: 500px) and (max-width: 670px) {
-            margin: 8% 0 30% 0;
+            margin-top: 4%;
         }
         @media screen and (min-width: 320px) and (max-width: 500px) {
-            margin: 10% 0 35% 0;
+            margin-top: 10%;
         }
     }
     ul {
@@ -33,19 +33,39 @@ export const Container = styled.section `
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         justify-content: center;
         align-content: center;
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1300px) {
             column-gap: 2%;
             row-gap: 5%;
-            margin: 5%;
+            margin: 7% 5%;
         }
-        @media screen and (min-width: 670px) and (max-width: 1024px) {
+        @media screen and (min-width: 1100px) and (max-width: 1300px) {
             column-gap: 4%;
             row-gap: 3%;
             margin: 5% 5% 15% 5%;
         }
-        @media screen and (min-width: 320px) and (max-width: 670px) {
+        @media screen and (min-width: 930px) and (max-width: 1100px) {
+            column-gap: 4%;
+            row-gap: 3%;
+            margin: 15% 5% 15% 5%;
+        }
+        @media screen and (min-width: 700px) and (max-width: 930px) {
+            column-gap: 4%;
             row-gap: 2%;
-            margin: 5% 5% 30% 5%;
+            margin: 15% 5% 15% 5%;
+        }
+        @media screen and (min-width: 500px) and (max-width: 700px) {
+            column-gap: 4%;
+            row-gap: 1%;
+            margin: 25% 5% 20% 5%;
+        }
+        @media screen and (min-width: 400px) and (max-width: 500px) {
+            column-gap: 4%;
+            row-gap: 1%;
+            margin: 35% 5% 25% 5%;
+        }
+        @media screen and (min-width: 320px) and (max-width: 400px) {
+            row-gap: 1%;
+            margin: 40% 5% 30% 5%;
         }
         li {
             display: flex;
@@ -72,7 +92,6 @@ export const Container = styled.section `
 
 
 export const Loading = styled.img `
-    width: 5%;
     display: block;
     margin: 19.1vh auto;
     @keyframes rotate {
@@ -80,4 +99,11 @@ export const Loading = styled.img `
         to {transform: rotate(360deg)}
     }
     animation: rotate 1s infinite;
+
+    @media screen and (min-width: 1000px) {
+        width: 5%;
+    }
+    @media screen and (min-width: 320px) and (max-width: 1000px) {
+        width: 15%;
+    }
 `
