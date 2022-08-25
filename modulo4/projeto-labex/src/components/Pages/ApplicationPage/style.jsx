@@ -2,16 +2,26 @@ import styled from "styled-components";
 
 
 export const ApplicationSection = styled.section `
-    background-image: url(${props => props.background});
+    @media screen and (min-width: 1280px) {
+        background-image: url(${props => props.backgroundL});        
+    }
+    @media screen and (min-width: 900px) and (max-width: 1280px) {
+        background-image: url(${props => props.backgroundM});        
+    }
+    @media screen and (min-width: 320px) and (max-width: 900px) {
+        background-image: url(${props => props.backgroundS});        
+    }
+
     background-size: cover;
     min-height: 100vh;
-
+  
     section {
         display: block;
         margin: 0 auto;
         width: 100%;
         h1 {
             text-align: center;
+            color: white;
             @media screen and (min-width: 1200px) {
                 margin: 3% 0 2% 0;
             }

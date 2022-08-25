@@ -66,29 +66,26 @@ export const ButtonSection = styled.section `
             color: black;
         }
         :nth-child(1) {
-            @media screen and (min-width: 1280px) {
-                width: 18vw;
+            @media screen and (min-width: 1350px) {
+                width: 23vw;
             }
-            @media screen and (min-width: 1024px) and (max-width: 1280px) {
-                width: 22vw;
-            }
-            @media screen and (min-width: 920px) and (max-width: 1024px) {
-                width: 25vw;
-            }
-            @media screen and (min-width: 830px) and (max-width: 920px) {
-                width: 28vw;
-            }
-            @media screen and (min-width: 720px) and (max-width: 830px) {
+            @media screen and (min-width: 1000px) and (max-width: 1350px) {
                 width: 32vw;
             }
+            @media screen and (min-width: 830px) and (max-width: 1000px) {
+                width: 40vw;
+            }
+            @media screen and (min-width: 720px) and (max-width: 830px) {
+                width: 48vw;
+            }
             @media screen and (min-width: 580px) and (max-width: 720px) {
-                width: 41vw;
+                width: 58vw;
             }
             @media screen and (min-width: 470px) and (max-width: 580px) {
-                width: 50vw;
+                width: 68vw;
             }
             @media screen and (min-width: 320px) and (max-width: 470px) {
-                width: 64vw;
+                width: 74vw;
             }
         }
         :nth-child(2) {

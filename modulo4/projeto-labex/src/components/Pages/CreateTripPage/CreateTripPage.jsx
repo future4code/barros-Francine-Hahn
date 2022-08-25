@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import {Header} from '../../Header/Header'
 import {CreateTripSection, GoBack, Loading} from './style'
 import { useForm } from "../../../hooks/useForm";
-import launch3 from '../../../img/launch3.jpg'
+import planet from '../../../img/planet.png'
 import { useProtectedPage } from "../../../hooks/useProtectedPage";
 import { urlBase } from "../../../constants/urlBase";
 import loading from '../../../img/loading.png'
@@ -61,7 +61,7 @@ export function CreateTripPage() {
 
 
     return (
-        <CreateTripSection background={launch3}>
+        <CreateTripSection background={planet}>
             <Header/>
             <h1>Criar Viagem</h1>
             <form onSubmit={handleCreateTrip}>

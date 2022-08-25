@@ -3,13 +3,14 @@ import axios from "axios";
 import {useNavigate} from 'react-router-dom'
 import {Header} from '../../Header/Header'
 import {BiggerContainer, AdminSection, ListTripsSection, ButtonSection, Loading} from './style'
-import launch3 from '../../../img/launch3.jpg'
+import planet from '../../../img/planet.png'
 import { useProtectedPage } from "../../../hooks/useProtectedPage";
 import { urlBase } from "../../../constants/urlBase";
 import { useRequestData } from "../../../hooks/useRequestData";
 import loading from '../../../img/loading.png'
 import iconDelete from '../../../img/iconDelete.png'
 import { AuthContext } from "../../../contexts/AuthContext";
+import { ErrorPage } from "../ErrorPage/ErrorPage";
 
 
 export function AdmPage() {
@@ -43,7 +44,7 @@ export function AdmPage() {
     }
     
     //Rendering the trips' list
-    const trips = data && data.trips && data.trips.map(item => {
+    const renderTrips = data && data.trips && data.trips.map(item => {
         return (
             <ButtonSection key={item.id}>
                 <button onClick={() => handleTripDetail(item)}>{item.name}</button>
@@ -55,7 +56,7 @@ export function AdmPage() {
     })
 
     return (
-        <BiggerContainer background={launch3}>
+        <BiggerContainer background={planet}>
             <Header/>
             <AdminSection>
                 <h1>Bem vindo(a) ao painel administrativo</h1>
@@ -64,17 +65,12 @@ export function AdmPage() {
                 
                 {!isLoading && data && (
                     <ListTripsSection>
-                        {trips}
+                        {data && data.trips && renderTrips}
                         {loadingData && <Loading src={loading} alt={'Ícone de um círculo rodando'}/>}
                     </ListTripsSection>
                 )}
 
-                {!isLoading && error && (
-                    <>
-                        <p>Houve um erro:</p>
-                        <p>{error}</p>
-                    </>
-                )}
+                {!isLoading && error && <ErrorPage error={error}/>}
             </AdminSection>
         </BiggerContainer>
     )

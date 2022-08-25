@@ -7,6 +7,7 @@ import { LoginPage } from "./Pages/LoginPage/LoginPage";
 import { ApplicationPage } from "./Pages/ApplicationPage/ApplicationPage";
 import { TripDetailsPage } from "./Pages/TripDetailsPage/TripDetailsPage";
 import { ListTripsPage } from "./Pages/ListTripsPage/ListTripsPage";
+import { ErrorPage } from "./Pages/ErrorPage/ErrorPage";
 
 
 export function Router() {
@@ -20,6 +21,7 @@ export function Router() {
                 <Route path="/criar-viagem" element={<CreateTripPage/>}/>
                 <Route path="/lista-de-viagens" element={<ListTripsPage/>}/>
                 <Route path="/detalhes-da-viagem/:details" element={<TripDetailsPage/>}/>
+                <Route path="/erro" element={<ErrorPage/>}/>
             </Routes>
         </BrowserRouter>
     )

@@ -9,7 +9,7 @@ export const CreateTripSection = styled.section `
         text-align: center;
         color: white;
         @media screen and (min-width: 1200px) {
-            margin: 4% 0 2% 0;
+            margin: 3% 0 2% 0;
         }
         @media screen and (min-width: 550px) and (max-width: 1200px) {
             margin: 8% 0 3% 0;
@@ -39,6 +39,7 @@ export const CreateTripSection = styled.section `
             border: 1px solid lightgrey;
         }
         input {
+            padding: 1.5%;
             :nth-child(6) {
                 cursor: pointer;
                 :active {
@@ -54,11 +55,19 @@ export const CreateTripSection = styled.section `
 
 export const GoBack = styled.button `
     display: block;
-    margin: 4vh auto 5% auto;
-    padding: .5% 2%;
+    margin: 4vh auto 0 auto;
     background-color: transparent;
-    border: 2px solid white;
+    border: 1px solid white;
     color: white;
+    @media screen and (min-width: 1000px) {
+        padding: .8% 2%;
+    }
+    @media screen and (min-width: 600px) and (max-width: 1000px) {
+        padding: 1.5% 2.5%;
+    }
+    @media screen and (min-width: 320px) and (max-width: 600px) {
+        padding: 2% 3%;
+    }
     :hover {
         background-color: white;
         color: black;

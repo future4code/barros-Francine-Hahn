@@ -5,6 +5,7 @@ import { Container, Loading } from "./style";
 import {useRequestData} from '../../../hooks/useRequestData'
 import launch2 from '../../../img/launch2.jpg'
 import loading from '../../../img/loading.png'
+import { ErrorPage } from "../ErrorPage/ErrorPage";
 
 
 export function ListTripsPage() {
@@ -34,7 +35,7 @@ export function ListTripsPage() {
                 {!isLoading && data && renderTrips}
             </ul>
 
-            {!isLoading && !data && error}
+            {!isLoading && error && <ErrorPage error={error}/>}
         </Container>
     )
 }

@@ -70,7 +70,7 @@ export const Container = styled.section `
         li {
             display: flex;
             flex-direction: column;
-            background-color: #3e698af6;
+            background-color: #336a95;
             box-shadow: 3px 3px 3px #07070734;
             padding: 3vh 2vw;
             h2 {

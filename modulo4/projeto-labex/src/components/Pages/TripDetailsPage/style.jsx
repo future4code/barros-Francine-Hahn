@@ -2,20 +2,15 @@ import styled from "styled-components";
 
 
 export const DetailsSection = styled.section `
-    background-image: linear-gradient(to right, #326d8d, #4689b3, #3199da);
+    background-color: black;
     background-size: contain;
     min-height: 100vh;
     section {
-        padding: 5vh 0;
-        h2 {
-            color: white;
-            text-align: center;
-            margin: 2% 0 -1.5% 0;
-        }
+        padding: 4vh 0;
         section {
             h1 {
                 text-align: center;
-                margin: 1%;
+                margin-bottom: 2%;
                 color: white;
             }
             p {
@@ -33,6 +28,30 @@ export const PendingCandidates = styled.section `
     flex-direction: column;
     gap: 2vh;
     justify-content: center;
+    border-top: 1px solid white;    
+    border-bottom: 1px solid white;
+    @media screen and (min-width: 1000px) {
+        margin: 0 15vw;
+    }
+    @media screen and (min-width: 600px) and (max-width: 1000px) {
+        margin: 0 12vw;
+    }
+    @media screen and (min-width: 320px) and (max-width: 600px) {
+        margin: 0 8vw;
+    }
+    h2 {
+        color: white;
+        text-align: center;
+        @media screen and (min-width: 1200px) {
+            margin-bottom: 1.5%;
+        }
+        @media screen and (min-width: 600px) and (max-width: 1200px) {
+            margin-bottom: 1%;
+        }
+        @media screen and (min-width: 320px) and (max-width: 600px) {
+            margin-bottom: 3%;
+        }
+    }
 `
 
 

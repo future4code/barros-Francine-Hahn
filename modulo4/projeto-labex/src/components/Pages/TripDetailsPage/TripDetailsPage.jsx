@@ -10,6 +10,7 @@ import {DetailsSection, PendingCandidates, ApprovedCandidates, Loading, GoBack} 
 import { AuthContext } from "../../../contexts/AuthContext";
 import loading from '../../../img/loading.png'
 import rocket from '../../../img/rocket.png'
+import { ErrorPage } from "../ErrorPage/ErrorPage";
 
 
 export function TripDetailsPage() {
@@ -66,7 +67,6 @@ export function TripDetailsPage() {
             {!isLoading && data && (
             <>
                 <section>
-                    <GoBack onClick={() => navigate(-1)}>Voltar</GoBack>
                     <section>
                         <h1>{tripName}</h1>
                         <p>DESCRIÇÃO: {data.trip.description}</p>
@@ -74,10 +74,9 @@ export function TripDetailsPage() {
                         <p>DURAÇÃO: {data.trip.durationInDays} dias</p>
                         <p>DATA: {data.trip.date}</p>
                     </section>
-
-                    <h2>Candidatos pendentes</h2>
                     
                     <PendingCandidates>
+                        <h2>Candidatos pendentes</h2>
                         {data.trip.candidates && data.trip.candidates.map(item => {
                             return (
                                 <ApplicantsCard
@@ -108,10 +107,12 @@ export function TripDetailsPage() {
                             {data.trip.approved.length === 0 && <p>Não há candidatos aprovados.</p>}
                         </ul>
                     </ApprovedCandidates>
+
+                    <GoBack onClick={() => navigate(-1)}>Voltar</GoBack>
                 </section>
             </>
             )}
-            {!isLoading && !data && <p>{error}</p>}
+            {!isLoading && error && <ErrorPage error={error}/>}
         </DetailsSection>
     )
 }

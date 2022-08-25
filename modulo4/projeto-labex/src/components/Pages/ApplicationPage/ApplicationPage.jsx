@@ -5,7 +5,9 @@ import { urlBase } from "../../../constants/urlBase";
 import {Header} from '../../Header/Header'
 import {ApplicationSection, Loading} from './style'
 import { useRequestData } from "../../../hooks/useRequestData";
-import space from '../../../img/space.jpg'
+import moon from '../../../img/moon.png'
+import moonTablet from '../../../img/moon-tablet.png'
+import moonMobile from '../../../img/moon-mobile.png'
 import { countries } from "../../../constants/countries";
 import loading from '../../../img/loading.png'
 
@@ -42,7 +44,7 @@ export function ApplicationPage() {
     }
 
     return (
-        <ApplicationSection background={space}>
+        <ApplicationSection backgroundL={moon} backgroundM={moonTablet} backgroundS={moonMobile}>
             <Header/>
             <section>
                 <h1>Inscreva-se para uma viagem</h1>
