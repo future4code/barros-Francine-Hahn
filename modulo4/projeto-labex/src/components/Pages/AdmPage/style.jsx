@@ -49,7 +49,7 @@ export const ListTripsSection = styled.section `
         background: white;
     }
     ::-webkit-scrollbar-thumb {
-        background: lightgrey;
+        background: #9f9f9f;
     }
 `
 

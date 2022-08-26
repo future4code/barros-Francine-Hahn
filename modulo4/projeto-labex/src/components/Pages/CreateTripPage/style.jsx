@@ -21,25 +21,55 @@ export const CreateTripSection = styled.section `
     form {
         display: flex;
         flex-direction: column;
-        margin: 0 auto;
-        @media screen and (min-width: 1000px) {
-            width: 35%;
-        }
-        @media screen and (min-width: 800px) and (max-width: 1000px) {
-            width: 55%;
-        }
-        @media screen and (min-width: 600px) and (max-width: 800px) {
-            width: 70%;
-        }
-        @media screen and (min-width: 320px) and (max-width: 600px) {
-            width: 90%;
-        }
-        input, select, textarea {
-            padding: 1.5% .5%;
+        select, input:nth-child(6) {
             border: 1px solid lightgrey;
+            margin: 0 auto;
+            @media screen and (min-width: 1000px) {
+                width: 35.1%;
+                padding: .7%;
+            }
+            @media screen and (min-width: 800px) and (max-width: 1000px) {
+                width: 55.2%;
+                padding: .7%;
+            }
+            @media screen and (min-width: 600px) and (max-width: 800px) {
+                width: 70.2%;
+                padding: 1%;
+            }
+            @media screen and (min-width: 320px) and (max-width: 600px) {
+                width: 90.4%;
+                padding: 1.5%;
+            }
+        }
+        input, textarea {
+            border: 1px solid lightgrey;
+            margin: 0 auto;
+            @media screen and (min-width: 1350px) {
+                width: 33.6%;
+                padding: .7%;
+            }
+            @media screen and (min-width: 1000px) and (max-width: 1350px) {
+                width: 33.5%;
+                padding: .7%;
+            }
+            @media screen and (min-width: 800px) and (max-width: 1000px) {
+                width: 53.6%;
+                padding: .7%;
+            }
+            @media screen and (min-width: 600px) and (max-width: 800px) {
+                width: 67.9%;
+                padding: 1%;
+            }
+            @media screen and (min-width: 500px) and (max-width: 600px) {
+                width: 87.1%;
+                padding: 1.5%;
+            }
+            @media screen and (min-width: 320px) and (max-width: 500px) {
+                width: 86.7%;
+                padding: 1.5%;
+            }
         }
         input {
-            padding: 1.5%;
             :nth-child(6) {
                 cursor: pointer;
                 :active {
