@@ -24,6 +24,5 @@ const convertTemperature = (temperatureInCelsius, kOrF) => {
 console.log(convertTemperature(30, "F"))
 console.log(convertTemperature(30, "K"))
 console.log(convertTemperature('trinta', "F"))
-console.log(convertTemperature(30, "G"))
-console.log(convertTemperature(30, "f"))
+console.log(convertTemperature(30, "m"))
 console.log(convertTemperature('trinta', "G"))
