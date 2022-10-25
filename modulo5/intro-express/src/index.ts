@@ -31,7 +31,7 @@ const users: UserInfo[] = [
 app.get("/users", (req: Request, res: Response) => {
     const usersList = users.map(item => item)
 
-    res.status(201).send(usersList)
+    res.status(200).send(usersList)
 })
 
 //Exercicio 5
@@ -80,15 +80,30 @@ const posts: PostInfo[] = [
 app.get("/posts", (req: Request, res: Response) => {
     const postsList = posts.map(item => item)
 
-    res.status(201).send(postsList)
+    res.status(200).send(postsList)
 })
 
 //Exercicio 8
 app.get("/posts/:id", (req: Request, res: Response) => {
     const id = req.params.id
+    
+    let isIdValid
+    for (let post of posts) {
+        if (post.userId === id) {
+            isIdValid = true
+            break
+        } else {
+            isIdValid = false
+        }
+    }
+
     const userPosts = posts.filter(item => item.userId === id)
 
-    res.status(201).send(userPosts)
+    if (isIdValid) {
+        res.status(200).send(userPosts)
+    } else {
+        res.status(400).send('É necessário adicionar um id válido.')
+    }
 })
 
 //Exercicio 9
