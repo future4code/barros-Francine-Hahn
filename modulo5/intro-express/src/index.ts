@@ -107,7 +107,54 @@ app.get("/posts/:id", (req: Request, res: Response) => {
 })
 
 //Exercicio 9
+app.delete("/posts/:id", (req: Request, res: Response) => {
+    const id = req.params.id
+    
+    let isIdValid
+    for (let post of posts) {
+        if (post.id === id) {
+            isIdValid = true
+            break
+        } else {
+            isIdValid = false
+        }
+    }
 
+    const postsNotDeleted = posts.filter(item => item.id !== id)
+
+    if (isIdValid) {
+        res.status(200).send(postsNotDeleted)
+    } else {
+        res.status(400).send('É necessário adicionar um id válido.')
+    }
+})
+
+//Exercicio 10
+app.delete('/users/:id', (req: Request, res: Response) => {
+    const id = req.params.id
+    
+    let isIdValid
+    for (let user of users) {
+        if (user.id === id) {
+            isIdValid = true
+            break
+        } else {
+            isIdValid = false
+        }
+    }
+
+    const usersNotDeleted = users.filter(item => item.id !== id)
+
+    if (isIdValid) {
+        res.status(200).send(usersNotDeleted)
+    } else {
+        res.status(400).send('É necessário adicionar um id válido.')
+    }
+    
+})
+
+//Exercicio 11
+// URL da documentação: https://documenter.getpostman.com/view/22375317/2s8YCejtJr
 
 
 app.listen(3003, () => {
