@@ -84,6 +84,31 @@ app.delete("/todos/task/delete/:taskId", (req: Request, res: Response) =>{
     }
 })
 
+//Exercicio 8
+app.get("/todos/:id", (req: Request, res: Response) => {
+    const userId = req.params.id
+
+    if (!userId) {
+        res.status(400).send('Adicione o id do usuário.')
+    } else {
+        const tasksOfUserSelected = toDoList.filter(item => item.userId === Number(userId))
+        const tasksOfTheOtherUsers = toDoList.filter(item => item.userId !== Number(userId))
+        
+        res.status(200).send({
+            todos: {
+                selectedUser: tasksOfUserSelected,
+                others: tasksOfTheOtherUsers
+            }
+        })
+    }
+})
+
+//Exercicio 9
+//Link da documentação: https://documenter.getpostman.com/view/22375317/2s8YKAo4ss
+
+//Exercicio 10
+//Aplicado diretamente no exercício8
+
 
 app.listen(3003, () => {
     console.log("Server is running in http://localhost:3003")
