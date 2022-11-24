@@ -1,0 +1,21 @@
+GET https://viacep.com.br/ws/00000050/json/
+Content-Type: application/json
+
+###
+
+POST http://localhost:3003/address
+Content-Type: application/json
+
+{
+    "cep": "90550090"
+}
+
+###
+POST http://localhost:3003/register
+Content-Type: application/json
+
+{
+    "cep": "90150080",
+    "number": 500,
+    "apartment": "201A"
+}
