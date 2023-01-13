@@ -1,1 +1,1 @@
-export const validateName = name => /(?=^.{2,80}$)^[A-Z][a-z]+(?:[ ](?:das?|dos?|de|e|[A-Z][a-z]+))*$/.test(name)
+export const validateName = name => /.{2,80}/.test(name)

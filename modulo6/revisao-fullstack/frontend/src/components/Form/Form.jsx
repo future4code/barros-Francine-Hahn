@@ -1,60 +1,112 @@
 import React, { useEffect, useState } from "react"
 import { Container } from "./style"
 import { validateName } from "../../constants/constants"
-import { ProductsSelected } from "../ProductsSelected/ProductsSelected"
 import { useNavigate } from "react-router-dom"
+import { useRequestData } from "../../hooks/useRequestData"
+import { useForm } from "../../hooks/useForm"
+import axios from "axios"
 
 
-export function Form () {
-    const [clientName, setClientName] = useState("")
-    const [product, setProduct] = useState("")
-    const [qty, setQty] = useState("")
-    const [price, setPrice] = useState(20)
-    const [deliveryDate, setDeliveryDate] = useState("")
+export function Form (props) {
     const [clientNameErrorMessage, setClientNameErrorMessage] = useState("")
     const [reload, setReload] = useState(false)
     let productsInCart = JSON.parse(localStorage.getItem("products"))
     const navigate = useNavigate()
 
+    const [form, onChange, clearInputs] = useForm({clientName: "", product: "", qty: 1, deliveryDate: ""})
 
+    const [clientData, isLoadingClient, errorClient] = useRequestData('http://localhost:3003/clients')
+    const [productData, isLoadingProduct, errorProduct] = useRequestData('http://localhost:3003/products')
+    const [stockData] = useRequestData('http://localhost:3003/products/stock')
+
+    const selectClient = clientData && form.clientName && clientData.find(data => data.name === form.clientName)
+ 
     useEffect(() => {
         productsInCart = JSON.parse(localStorage.getItem("products"))
-    }, [reload])
+    }, [reload, props.reload])
 
+
+    //Function that submits OR registers the client name
     const handleSubmitName = (e) => {
         e.preventDefault()
 
-        if (validateName(clientName)) {
+        if (validateName(form.clientName)) {
             localStorage.setItem("products", JSON.stringify([]))
-            localStorage.setItem("name", clientName)
+            localStorage.setItem("name", form.clientName)
             setReload(!reload)
+            props.setReload(!props.reload)
+
+            if (!selectClient) {
+                const body = {name: form.clientName}
+                axios.post('http://localhost:3003/clients', body)
+                .then(alert('Cliente cadastrado com sucesso'))
+                .catch(error => alert(error.response))
+            }
         } else {
             setClientNameErrorMessage("Nome inválido. Digite nome e sobrenome.")
         }
     }
 
+    //Function that adds a product to the cart
     const handleAddProduct = (e) => {
         e.preventDefault()
         setReload(!reload)
+        props.setReload(!props.reload)
         
+        if (form.qty < 1) {
+            alert("A quantidade não pode ser menor do que 1.")
+            return
+        }
+
+        const getStock = stockData && stockData.filter(item => item.name === form.product)[0]      
+        if (getStock.qty_stock < form.qty) {
+            alert("Estoque indisponível.")
+            return
+        }
+
+        const filterProduct = productData.filter(item => item.name === form.product)[0]
+        
+        let products = []
         if (productsInCart === null) {
-            const products = [{product, qty, price}]
+            products = [{id: filterProduct.id, product: form.product, qty: form.qty, price: filterProduct.price * form.qty}]
             localStorage.setItem("products", JSON.stringify(products))
         } else {
-            const products = [...productsInCart, {product, qty, price}]
-            localStorage.setItem("products", JSON.stringify(products))
+            products = [...productsInCart, {id: filterProduct.id, product: form.product, qty: form.qty, price: filterProduct.price * form.qty}]
         }
-        
+
+        localStorage.setItem("products", JSON.stringify(products))
+        clearInputs()
         setReload(!reload)
-        setProduct("")
-        setQty("")
+        props.setReload(!props.reload)
     }
 
+    //Function that completes the order
     const handleOrder = (e) => {
         e.preventDefault()
-        localStorage.removeItem("products")
-        localStorage.removeItem("name")
-        navigate("/pedido-finalizado")
+
+        if (form.deliveryDate === "") {
+            alert("Selecione a data de entrega.")
+            
+        } else {
+            const findClientId = clientData.filter(item => item.name === localStorage.getItem("name"))[0]
+            
+            const products = []
+            for (let product of productsInCart) {
+                products.push({id: product.id, qty: product.qty})
+            }
+
+            const body = {
+                "fk_client_id": findClientId.id,
+                "delivery_date": form.deliveryDate,
+                "products": products
+            }
+
+            axios.post('http://localhost:3003/orders', body).then(() => {
+                localStorage.removeItem("products")
+                localStorage.removeItem("name")
+                navigate("/pedido-finalizado")
+            }).catch(err => alert(err.response))
+        }
     }
     
     return (
@@ -62,26 +114,19 @@ export function Form () {
             {productsInCart === null && (
                 <>
                 <section>
-                    <label htmlFor="name">Nome do cliente</label>
-                    <input type={'text'} value={clientName} id="name" list="clientData" onChange={e => setClientName(e.target.value)}/>
+                    <label htmlFor="clientName">Nome do cliente</label>
+                    <input type={'text'} value={form.clientName} id="clientName" name="clientName" list="clientData" onChange={onChange}/>
                     <datalist id="clientData">
-                        <option>Francine Hahn</option>
-                        <option>Mariana Boeira</option>
-                        <option>Daniela Angeli</option>
+                        {isLoadingClient && <option>Carregando...</option>}
+                        
+                        {!isLoadingClient && clientData && clientData.map((item, index) => {
+                            return <option key={index}>{item.name}</option>
+                        })}
                     </datalist>
-                    <button onClick={handleSubmitName}>Entrar</button>
+                    <button type="button" onClick={handleSubmitName}>{selectClient? 'Entrar' : 'Cadastrar'}</button>
                 </section>
 
                 <span>{clientNameErrorMessage}</span>
-                </>
-            )}
-
-            {productsInCart !== null && productsInCart.length > 0 && (
-                <>
-                    <h3>Produtos selecionados</h3>
-                    {productsInCart.map((item, index) => {
-                        return <ProductsSelected key={index} name={item.product} qty={item.qty} price={item.price}/>
-                    })}
                 </>
             )}
 
@@ -90,26 +135,26 @@ export function Form () {
             {productsInCart !== null && (
                 <section>
                     <label htmlFor="product">Produto</label>
-                    <input type={'text'} value={product} id="product" list="productData" onChange={e => setProduct(e.target.value)}/>
+                    <input type={'text'} value={form.product} id="product" name="product" list="productData" onChange={onChange}/>
                     <datalist id="productData">
-                        <option>Maçã</option>
-                        <option>Banana</option>
-                        <option>Uva</option>
+                        {isLoadingProduct && <option>Carregando...</option>}
+                        
+                        {!isLoadingProduct && productData && productData.map((item, index) => {
+                            return <option key={index}>{item.name}</option>
+                        })}
                     </datalist>
 
                     <label htmlFor="qty">Quantidade</label>
-                    <input type={'number'} value={qty} id="qty" onChange={e => setQty(e.target.value)}/>
-                    
-                    <p>R$ 500,00</p>
+                    <input type={'number'} value={form.qty} id="qty" name="qty" onChange={onChange}/>
 
-                    <button onClick={handleAddProduct}>Adicionar</button>
+                    <button type="button" onClick={handleAddProduct}>OK</button>
                 </section>
             )}
 
             {productsInCart !== null && productsInCart.length > 0 && (
                 <section>
                     <label htmlFor="deliveryDate">Data de entrega</label>
-                    <input type={'date'} value={deliveryDate} id="deliveryDate" onChange={e => setDeliveryDate(e.target.value)}/>
+                    <input type={'date'} value={form.deliveryDate} id="deliveryDate" name="deliveryDate" onChange={onChange}/>
                     <button onClick={handleOrder}>Confirmar pedido</button>
                 </section>
             )}

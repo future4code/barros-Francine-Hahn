@@ -15,7 +15,7 @@ export const Container = styled.form `
         justify-content: center;
         gap: .5vw;
         width: 98vw;
-        border: 2px solid var(--darkgreen);
+        border: 5px solid var(--darkgreen);
         padding: 2vh 0;
         
         label {

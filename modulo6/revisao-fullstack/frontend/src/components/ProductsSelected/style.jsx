@@ -5,13 +5,28 @@ export const Container = styled.div `
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2vw;
-    border: 2px solid var(--darkgreen);
-    width: 98vw;
+    gap: 2.5vw;
+    width: 75vw;
     padding: 2vh 0;
+    background-color: #eeeeee;
 
     p {
         font-size: 16px;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: .5vw;
+        svg {
+            height: 20px;
+            width: 20px;
+            color: var(--darkgreen);
+            :hover {
+                opacity: .7;
+                cursor: pointer;
+            }
+        }
     }
 
     button {
