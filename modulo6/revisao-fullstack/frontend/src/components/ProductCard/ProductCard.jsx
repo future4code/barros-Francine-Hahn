@@ -3,7 +3,7 @@ import { Container } from "./style"
 import {AiOutlinePlusCircle, AiOutlineMinusCircle} from 'react-icons/ai'
 
 
-export function ProductsSelected (props) {
+export function ProductCard (props) {
     const productsInCart = JSON.parse(localStorage.getItem("products"))
 
     const handleRemoveProduct = () => {

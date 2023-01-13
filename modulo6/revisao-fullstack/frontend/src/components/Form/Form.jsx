@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { Container } from "./style"
 import { validateName } from "../../constants/constants"
 import { useNavigate } from "react-router-dom"
 import { useRequestData } from "../../hooks/useRequestData"
 import { useForm } from "../../hooks/useForm"
 import axios from "axios"
+import { Loading } from "../Loading/Loading"
 
 
 export function Form (props) {
     const [clientNameErrorMessage, setClientNameErrorMessage] = useState("")
-    const [reload, setReload] = useState(false)
     let productsInCart = JSON.parse(localStorage.getItem("products"))
+    const [isLoadingOrder, setIsLoadingOrder] = useState(false)
     const navigate = useNavigate()
 
     const [form, onChange, clearInputs] = useForm({clientName: "", product: "", qty: 1, deliveryDate: ""})
@@ -20,10 +21,6 @@ export function Form (props) {
     const [stockData] = useRequestData('http://localhost:3003/products/stock')
 
     const selectClient = clientData && form.clientName && clientData.find(data => data.name === form.clientName)
- 
-    useEffect(() => {
-        productsInCart = JSON.parse(localStorage.getItem("products"))
-    }, [reload, props.reload])
 
 
     //Function that submits OR registers the client name
@@ -33,7 +30,6 @@ export function Form (props) {
         if (validateName(form.clientName)) {
             localStorage.setItem("products", JSON.stringify([]))
             localStorage.setItem("name", form.clientName)
-            setReload(!reload)
             props.setReload(!props.reload)
 
             if (!selectClient) {
@@ -50,7 +46,6 @@ export function Form (props) {
     //Function that adds a product to the cart
     const handleAddProduct = (e) => {
         e.preventDefault()
-        setReload(!reload)
         props.setReload(!props.reload)
         
         if (form.qty < 1) {
@@ -58,7 +53,8 @@ export function Form (props) {
             return
         }
 
-        const getStock = stockData && stockData.filter(item => item.name === form.product)[0]      
+        const getStock = stockData && stockData.filter(item => item.name === form.product)[0]
+        
         if (getStock.qty_stock < form.qty) {
             alert("Estoque indisponível.")
             return
@@ -76,13 +72,13 @@ export function Form (props) {
 
         localStorage.setItem("products", JSON.stringify(products))
         clearInputs()
-        setReload(!reload)
         props.setReload(!props.reload)
     }
 
     //Function that completes the order
     const handleOrder = (e) => {
         e.preventDefault()
+        setIsLoadingOrder(true)
 
         if (form.deliveryDate === "") {
             alert("Selecione a data de entrega.")
@@ -155,7 +151,7 @@ export function Form (props) {
                 <section>
                     <label htmlFor="deliveryDate">Data de entrega</label>
                     <input type={'date'} value={form.deliveryDate} id="deliveryDate" name="deliveryDate" onChange={onChange}/>
-                    <button onClick={handleOrder}>Confirmar pedido</button>
+                    <button onClick={handleOrder}>{isLoadingOrder? <Loading/> : 'Confirmar pedido'}</button>
                 </section>
             )}
         </Container>

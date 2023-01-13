@@ -6,20 +6,20 @@ export const Container = styled.form `
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1vw;
-    margin-top: 2vh;
+    gap: .5vw;
+    margin: 2vh 0 4vh 0;
     
     section {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: .5vw;
-        width: 98vw;
-        border: 5px solid var(--darkgreen);
+        width: 99vw;
+        border: 4px solid var(--darkgreen);
         padding: 2vh 0;
         
         label {
-            font-size: 18px;
+            font-size: 16px;
         }
 
         input {
