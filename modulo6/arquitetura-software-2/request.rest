@@ -1,0 +1,30 @@
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "teste",
+    "email": "email@email.com",
+    "password": "23432535"
+}
+
+###
+
+GET http://localhost:3003/users
+Content-Type: application/json
+
+###
+
+POST http://localhost:3003/movies
+Content-Type: application/json
+
+{
+    "title": "Título teste",
+    "description": "Descrição teste",
+    "duration_in_minutes": 180,
+    "year_of_release": 2005
+}
+
+###
+
+GET http://localhost:3003/movies
+Content-Type: application/json
