@@ -1,0 +1,30 @@
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "Fran Hahn",
+    "email": "fran@email.com",
+    "password": "23432535"
+}
+
+###
+
+GET http://localhost:3003/users
+Content-Type: application/json
+
+###
+
+POST http://localhost:3003/movies
+Content-Type: application/json
+
+{
+    "title": "Titanic",
+    "description": "Descrição teste",
+    "duration_in_minutes": 200,
+    "year_of_release": 1996
+}
+
+###
+
+GET http://localhost:3003/movies
+Content-Type: application/json
