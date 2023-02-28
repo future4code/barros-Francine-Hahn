@@ -1,0 +1,18 @@
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email": "franhahn@gmail.com",
+    "password": "123456"
+}
+
+###
+POST http://localhost:3003/posts/create
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1MmI1ZmY5LTg3MTMtNDVjNC04MWM1LTU2OWM3NDU5MzgwNCIsImlhdCI6MTY3NzYwMjY5OSwiZXhwIjoxNjc3NjA2Mjk5fQ.fdsJnewwzIUwbrYBVECcTJYJxZsI--7hxASMMq578j4
+Content-Type: application/json
+
+{
+    "photo": "https://fastly.picsum.photos/id/13/2500/1667.jpg?hmac=SoX9UoHhN8HyklRA4A3vcCWJMVtiBXUg0W4ljWTor7s",
+    "description": "TESTE",
+    "type": "normal"
+}
