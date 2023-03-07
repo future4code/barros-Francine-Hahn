@@ -1,0 +1,8 @@
+GET http://localhost:3003/users/profile/5D4C6-DAJ5s6-H4dhI6Q-HAU5dg7-96ahGO6
+Content-Type: application/json
+
+
+###
+GET http://localhost:3003/users/all
+Role: ADMIN
+Content-Type: application/json
